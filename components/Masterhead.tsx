@@ -17,7 +17,7 @@ const Masterhead: React.FC = () => {
 
    const handleImageLoaded = useCallback(() => {
       setImageLoaded(true)
-   })
+   },[])
 
    return (
       <div
