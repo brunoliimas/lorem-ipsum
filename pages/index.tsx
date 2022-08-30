@@ -1,6 +1,7 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import AboutUs from '../components/AboutUs'
+import Footer from '../components/Footer'
 import Masterhead from '../components/Masterhead'
 import Skills from '../components/Skilss'
 
@@ -17,7 +18,8 @@ const Home: NextPage = () => {
       
       <Masterhead />
       <AboutUs/>
-      <Skills/>
+      <Skills />
+      <Footer />
     </>
   )
 }
