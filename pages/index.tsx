@@ -3,7 +3,6 @@ import Head from 'next/head'
 import Masterhead from '../components/Masterhead'
 import AboutUs from '../components/AboutUs'
 import Skills from '../components/Skilss'
-import Tile from '../components/Tile'
 import Works from '../components/Works'
 import Footer from '../components/Footer'
 
@@ -21,7 +20,6 @@ const Home: NextPage = () => {
       <Masterhead />
       <AboutUs/>
       <Skills />
-      <Tile />
       <Works />
       <Footer />
     </>

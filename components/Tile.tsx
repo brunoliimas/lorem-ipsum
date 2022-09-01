@@ -1,8 +1,8 @@
-import React, { useRef, useContext, Children } from "react"
+import React, { useRef, useContext } from "react"
 import { ScrollContext } from "../utils/scroll-observer"
 
 interface WrapperProps {
-   children: any
+   children: React.ReactNode
    numOfPages: number
 }
 interface TileContextValue {
@@ -14,6 +14,7 @@ export const TileContext = React.createContext<TileContextValue>({
    numOfPages: 0,
    currentPage: 0
 })
+
 
 export const TileWrapper: React.FC<WrapperProps> = ({
    children,
@@ -32,22 +33,24 @@ export const TileWrapper: React.FC<WrapperProps> = ({
       const percentY =
          Math.min(
             clientHeight + halfH,
-            Math.max(-screenH, scrollY - offsetTop) + halfH) / clientHeight
+            Math.max(-screenH, scrollY - offsetTop) + halfH
+         ) / clientHeight
       currentPage = percentY * numOfPages
-
    }
-
    return (
       <TileContext.Provider value={{ numOfPages, currentPage }}>
-
-         <div ref={refContainer} className="relative bg-black text-white">{children}</div>
+         <div ref={refContainer} className="relative bg-black text-white">
+            {children}
+         </div>
       </TileContext.Provider>
    )
 }
 
-export const TileBackground: React.FC = ({ children }) => (
-   <div className="absolute h-full w-full"> {children}</div>
+
+export const TileBackground = ({ children } : { children: React.ReactNode }) => (
+   <div className="absolute h-full w-full">{children}</div>
 )
-export const TileContent: React.FC = ({ children }) => (
-   <div className="sticky top-0 h-screen overflow-hidden"> {children}</div>
+
+export const TileContent = ({ children }: { children: React.ReactNode }) => (
+   <div className="sticky top-0 h-screen overflow-hidden">{children}</div>
 )
