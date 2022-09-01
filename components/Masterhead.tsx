@@ -36,8 +36,8 @@ const Masterhead: React.FC = () => {
          <div className={`flex-grow-0 pt-10 transition-opacity duration-1000 drop-shadow-[0_5px_3px_rgba(0,0,0,0.2)] ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}>
             <Image
                src="/assets/logo.svg"
-               width={200 / 3}
-               height={200 / 3}
+               width={300 / 3}
+               height={300 / 3}
                alt="Doma Arquitetura" />
          </div>
          <div className="p-12 font-bold z-10 text-white drop-shadow-[0_5px_3px_rgba(0,0,0,0.2)] text-center flex-1 flex items-center justify-center flex-col">

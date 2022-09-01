@@ -1,9 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="339" height="154" viewBox="0 0 339 154">
+<svg xmlns="http://www.w3.org/2000/svg" width="500" height="500" viewBox="0 0 500 500">
   <g id="Grupo_1" data-name="Grupo 1" transform="translate(-368 -1208)">
-    <text id="logoipsum" transform="translate(368 1341)" fill="#fff" font-size="60" font-family="Poppins-Bold, Poppins" font-weight="700"><tspan x="0" y="0">logoipsum</tspan></text>
+    <!-- <text id="logoipsum" transform="translate(368 1341)" fill="#fff" font-size="60" font-family="Poppins-Bold, Poppins" font-weight="700"><tspan x="0" y="0">logoipsum</tspan></text> -->
     <rect id="Retângulo_1" data-name="Retângulo 1" width="70" height="70" transform="translate(368 1208)" fill="#fff"/>
     <circle id="Elipse_1" data-name="Elipse 1" cx="35" cy="35" r="35" transform="translate(448 1208)" fill="#fff"/>
-    <circle id="Elipse_2" data-name="Elipse 2" cx="7.5" cy="7.5" r="7.5" transform="translate(692 1288)" fill="#fff"/>
     <path id="Polígono_1" data-name="Polígono 1" d="M35,0,70,70H0Z" transform="translate(528 1208)" fill="#fff"/>
   </g>
 </svg>
