@@ -20,10 +20,11 @@ const AboutUs: React.FC = () =>{
             </p>
             <div className="mt-10 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 lg:gap-20">
                <Member id="01" name="Marc" socialId="@marcoli" link="https://github.com/brunoliimas"/>
-               <Member id="02" name="Luc" socialId="@lucbeck" link="https://github.com/brunoliimas"/>
-               <Member id="04" name="Anne" socialId="@annefrank" link="https://github.com/brunoliimas"/>
-               <Member id="03" name="Cleo" socialId="@cleopires" link="https://github.com/brunoliimas"/>
-               <Member id="01" name="Marc" socialId="@marcoli" link="https://github.com/brunoliimas"/>
+               <Member id="02" name="Lucy" socialId="@lucYbeck" link="https://github.com/brunoliimas"/>
+               <Member id="03" name="Antony" socialId="@antonyfrank" link="https://github.com/brunoliimas"/>
+               <Member id="04" name="Kai" socialId="@kaipires" link="https://github.com/brunoliimas"/>
+               <Member id="05" name="Tess" socialId="@tessli" link="https://github.com/brunoliimas"/>
+               <Member id="06" name="Buddy" socialId="@buddygray" link="https://github.com/brunoliimas"/>
             </div>
          </div>
       </section>

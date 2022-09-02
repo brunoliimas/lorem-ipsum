@@ -12,10 +12,10 @@ interface Props {
 const Member: React.FC<Props> = ({ id, name, socialId, link }) => (
    <div className="flex flex-col items-center justify-center">
       <Image
-         src={`/assets/team/avatar-${id}.png`}
+         src={`/assets/team/avatar-${id}.jpeg`}
          alt={name}
-         width={1366}
-         height={1555}
+         width={1400}
+         height={1082}
          className="rounded-md"
       />
       <p className="text-2xl xl:text-3xl">{name}</p>
