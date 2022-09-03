@@ -1,6 +1,6 @@
 import React, { useRef, useContext, useState, useCallback } from "react";
 import Image from "next/image"
-import { ScrollContext } from "../utils/scroll-observer";
+import { ScrollContext } from "./utils/scroll-observer";
 // import Logo from '/assets/logo.svg'
 
 const Masterhead: React.FC = () => {

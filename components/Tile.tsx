@@ -1,5 +1,5 @@
 import React, { useRef, useContext } from "react"
-import { ScrollContext } from "../utils/scroll-observer"
+import { ScrollContext } from "./utils/scroll-observer"
 
 interface WrapperProps {
    children: React.ReactNode

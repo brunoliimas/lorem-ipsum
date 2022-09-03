@@ -4,6 +4,7 @@ import Masterhead from '../components/Masterhead'
 import AboutUs from '../components/AboutUs'
 import Skills from '../components/Skilss'
 import Works from '../components/Works'
+import TrustedBy from '../components/TrustedBy'
 import Footer from '../components/Footer'
 
 
@@ -21,7 +22,7 @@ const Home: NextPage = () => {
       <AboutUs/>
       <Skills />
       <Works />
-      <AboutUs/>
+      <TrustedBy/>
       <Footer />
     </>
   )
