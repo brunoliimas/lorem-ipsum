@@ -41,9 +41,9 @@ const Masterhead: React.FC = () => {
                height={200 / 3}
                alt="Bruno Lima" />
          </div>
-         <div className="p-12 font-bold z-10 text-white drop-shadow-[0_5px_3px_rgba(0,0,0,0.2)] text-center flex-1 flex items-center justify-center flex-col">
-            <h1 className="mb-6 text-6xl xl:text-8xl">Bruno.Lima</h1>
-            <h2 className="mb-2 text-4xl xl:text-6xl tracking-tight">
+         <div className="py-12 px-8 font-bold z-10 text-white drop-shadow-[0_5px_3px_rgba(0,0,0,0.2)] text-center flex-1 flex items-center justify-center flex-col">
+            <h1 className="mb-6 text-5xl xl:text-6xl">Bruno Lima</h1>
+            <h2 className="mb-2 text-3xl xl:text-5xl tracking-tight">
                <span>Front End Developer</span>
             </h2>
          </div>
