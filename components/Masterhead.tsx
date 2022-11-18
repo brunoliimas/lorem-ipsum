@@ -29,21 +29,22 @@ const Masterhead: React.FC = () => {
             autoPlay
             loop muted
             playsInline
-            className="absolute w-full h-full object-cover" src="/assets/masthead-bg-03.mp4">
-            <source src="/assets/masthead-bg03.mp4" type="video/mp4; codecs=hvc1" />
-            {/* <source src="/assets/masthead-bg.webm" type="video/webm; codecs=vp9" /> */}
+            className="absolute w-full h-full object-cover" src="/assets/masthead-bg.mp4">
+            {/* <source src="/assets/masthead-me-bg.mp4" type="video/mp4; codecs=hvc1" /> */}
+            {/* <source src="/assets/masthead-bg03.mp4" type="video/mp4; codecs=hvc1" /> */}
+            <source src="/assets/masthead-bg.mp4" type="video/webm; codecs=vp9" />
          </video>
          <div className={`flex-grow-0 pt-10 transition-opacity duration-1000 drop-shadow-[0_5px_3px_rgba(0,0,0,0.2)] ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}>
             <Image
                src="/assets/logo.svg"
                width={200 / 3}
                height={200 / 3}
-               alt="Doma Arquitetura" />
+               alt="Bruno Lima" />
          </div>
          <div className="p-12 font-bold z-10 text-white drop-shadow-[0_5px_3px_rgba(0,0,0,0.2)] text-center flex-1 flex items-center justify-center flex-col">
-            <h1 className="mb-6 text-6xl xl:text-8xl">Lorem Ipsum</h1>
+            <h1 className="mb-6 text-6xl xl:text-8xl">Bruno.Lima</h1>
             <h2 className="mb-2 text-4xl xl:text-6xl tracking-tight">
-               <span>dolor sit amet</span>
+               <span>Front End Developer</span>
             </h2>
          </div>
          <div className={`flex-grow-0 pb-20 md:pb-10 transition-all duration-1000 ${imageLoaded ? 'opacity-100' : 'opacity-0 -translate-y-10'

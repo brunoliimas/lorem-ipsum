@@ -1,13 +1,16 @@
 import React from 'react'
 import ClientLogos from './ClientLogos'
+import Testimonials from './Testimonials'
+
+import s from '../styles/trustedby.module.css'
+
 
 const TrustedBy: React.FC = () => (
-   <section className="bg-white min-h-screen flex flex-col justify-center gap-1 md:gap-32">
+   <section className={`bg-white min-h-screen flex flex-col justify-center gap-8 md:gap-16 ${s.bg}`}>
       <div className="flex-1"></div>
       <div className="flex flex-col justify-center items-center">
          <h3 className="text-xl mb-10 font-bold text-center">
-            <span className="whitespace-nowrap">Lorem ipsum dolor</span>{' '}
-            <span className="whitespace-nowrap">Tellus molestie nunc non blandit</span>
+            <span className="whitespace-nowrap">Tecnologias que uso</span>
          </h3>
          <ClientLogos/>
       </div>
@@ -18,9 +21,7 @@ const TrustedBy: React.FC = () => (
             </h3>
          </div>
       </div>
-      <div>
-         Testimonials
-      </div>
+      <Testimonials />
       <div className="flex-1 bg-black"></div>
    </section>
 )

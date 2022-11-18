@@ -5,85 +5,100 @@ import SliderContainer, { SliderItem } from './Slider'
 const ClientLogos: React.FC = () => (
    <>
       <SliderContainer
-         className=""
+         className="py-4"
          contentWidth={1290}
          initialOffsetX={0}>
-         <SliderItem width={150}>
+         <SliderItem width={100}>
             <Image
-               src="/assets/logos/logo-01.svg"
-               width={200}
+               src="/assets/logos/photoshop.png"
+               width={50}
                height={50}
                alt="logo 01"
                objectFit="contain"
             />
          </SliderItem>
-         <SliderItem width={150}>
+         <SliderItem width={100}>
             <Image
-               src="/assets/logos/logo-02.svg"
-               width={200}
+               src="/assets/logos/xd.png"
+               width={50}
                height={50}
                alt="logo 01"
                objectFit="contain"
             />
          </SliderItem>
-         <SliderItem width={150}>
+         <SliderItem width={100}>
             <Image
-               src="/assets/logos/logo-03.svg"
-               width={200}
+               src="/assets/logos/illustrator.png"
+               width={50}
                height={50}
                alt="logo 01"
                objectFit="contain"
             />
          </SliderItem>
-         <SliderItem width={150}>
+         <SliderItem width={100}>
             <Image
-               src="/assets/logos/logo-04.svg"
-               width={200}
+               src="/assets/logos/figma.png"
+               width={50}
                height={50}
                alt="logo 01"
                objectFit="contain"
             />
          </SliderItem>
-         <SliderItem width={150}>
+         
+      </SliderContainer>
+      <SliderContainer
+         className="py-4"
+         contentWidth={1290}
+         initialOffsetX={0}>
+         <SliderItem width={100}>
             <Image
-               src="/assets/logos/logo-05.svg"
-               width={200}
+               src="/assets/logos/html-5.png"
+               width={50}
                height={50}
                alt="logo 01"
                objectFit="contain"
             />
          </SliderItem>
-         <SliderItem width={150}>
+         <SliderItem width={100}>
             <Image
-               src="/assets/logos/logo-06.svg"
-               width={200}
+               src="/assets/logos/css-3.png"
+               width={50}
                height={50}
                alt="logo 01"
                objectFit="contain"
             />
          </SliderItem>
-         <SliderItem width={150}>
+         <SliderItem width={100}>
             <Image
-               src="/assets/logos/logo-07.svg"
-               width={200}
+               src="/assets/logos/js.png"
+               width={50}
                height={50}
                alt="logo 01"
                objectFit="contain"
             />
          </SliderItem>
-         <SliderItem width={150}>
+         <SliderItem width={100}>
             <Image
-               src="/assets/logos/logo-08.svg"
-               width={200}
+               src="/assets/logos/typescript.png"
+               width={50}
                height={50}
                alt="logo 01"
                objectFit="contain"
             />
          </SliderItem>
-         <SliderItem width={150}>
+         <SliderItem width={100}>
             <Image
-               src="/assets/logos/logo-09.svg"
-               width={200}
+               src="/assets/logos/react.svg"
+               width={50}
+               height={50}
+               alt="logo 01"
+               objectFit="contain"
+            />
+         </SliderItem>
+         <SliderItem width={100}>
+            <Image
+               src="/assets/logos/tailwind.png"
+               width={50}
                height={50}
                alt="logo 01"
                objectFit="contain"
