@@ -36,7 +36,7 @@ const Works = () => (
                      </p>
                   </WorkLeft>
                   <WorkRight progress={progress}>
-                     <Image src="/assets/works/app-02.png" layout="responsive" width={828} height={1415} alt="Iphone" />
+                     <Image src="/assets/works/desktop-02.png" layout="responsive" width={828} height={1415} alt="Iphone" />
                   </WorkRight>
                </WorkContainer>
             )}
