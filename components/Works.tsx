@@ -102,8 +102,8 @@ const Works = () => (
             renderContent={({ progress }) => (
                <WorkContainer>
                   <WorkLeft progress={progress}>
-                     <h3>Projeto de consumo de API (themoviedb)</h3>
-                     <p className="text-4xl md:text-5xl font-semibold tracking-tight">
+                     <h3 className="text-xl md:text-2xl">Projeto de consumo de API (themoviedb)</h3>
+                     <p className="text-3xl md:text-4xl font-semibold tracking-tight">
                         <WorkLink href="https://github.com/brunoliimas/superflix">Superflix</WorkLink>
                      </p>
                      {Object.values(projectTools.project1).map((tool, index) => (
@@ -121,8 +121,8 @@ const Works = () => (
             renderContent={({ progress }) => (
                <WorkContainer>
                   <WorkLeft progress={progress}>
-                     <h3>Sistema de pedidos para pizzaria</h3>
-                     <p className="text-4xl md:text-5xl font-semibold tracking-tight">
+                     <h3 className="text-xl md:text-2xl">Sistema de pedidos para pizzaria</h3>
+                     <p className="text-3xl md:text-4xl font-semibold tracking-tight">
                         <WorkLink href="https://github.com/brunoliimas/pizzaria-udemy">Pizzaria comanda</WorkLink> (Desktop e Mobile)
                      </p>
                      {Object.values(projectTools.project2).map((tool, index) => (
@@ -140,8 +140,8 @@ const Works = () => (
             renderContent={({ progress }) => (
                <WorkContainer>
                   <WorkLeft progress={progress}>
-                     <h3>Site de assistência e loja de acessórios para celular</h3>
-                     <p className="text-4xl md:text-5xl font-semibold tracking-tight">
+                     <h3 className="text-xl md:text-2xl">Site de assistência e loja de acessórios para celular</h3>
+                     <p className="text-3xl md:text-4xl font-semibold tracking-tight">
                         <WorkLink href="https://github.com/brunoliimas/stop-cell">StopCell</WorkLink> 
                      </p>
                      {Object.values(projectTools.project3).map((tool, index) => (
@@ -159,8 +159,8 @@ const Works = () => (
             renderContent={({ progress }) => (
                <WorkContainer>
                   <WorkLeft progress={progress}>
-                     <h3>Site com parallax ao rolar a página</h3>
-                     <p className="text-4xl md:text-5xl font-semibold tracking-tight">
+                     <h3 className="text-xl md:text-2xl">Site com parallax ao rolar a página</h3>
+                     <p className="text-3xl md:text-4xl font-semibold tracking-tight">
                         <WorkLink href="https://github.com/brunoliimas/parallax-gsap/">parallax-gsap</WorkLink> 
                      </p>
                      {Object.values(projectTools.project4).map((tool, index) => (

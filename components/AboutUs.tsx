@@ -7,7 +7,7 @@ const AboutUs: React.FC = () =>{
    return (
       <section className="flex flex-col bg-white py-20 text-3xl md:text-4xl">
          <div className="container mx-auto px-11">
-            <p className="leading-tight max-w-5xl mx-auto text-2xl tracking-tight">
+            <p className="leading-tight max-w-5xl mx-auto text-lg md:text-2xl tracking-tight">
             <strong>Desenvolvedor Front End</strong> com conhecimentos em <strong>ReactJS</strong> e <strong>NextJS</strong>, com habilidades avançadas em <strong>HTML, CSS e JavaScript</strong>. Paixão por criar interfaces interativas e responsivas, entregando soluções de qualidade. Abordagem focada no usuário, trabalhando em equipe para cumprir prazos e garantir a qualidade. Sempre atualizado nas últimas tendências de design e desenvolvimento. <strong className="text-green-700 underline">Disponível para novos projetos</strong>.
             </p>
          </div>
