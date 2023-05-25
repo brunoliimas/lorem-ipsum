@@ -22,11 +22,12 @@ export const WorkLeft: React.FC<{
    if (progress > .85) translateY = Math.max(-50, -(progress - .85) * 2 * 50)
    return (
       <div
-         className="work-left flex flex-col items-center justify-center text-3xl px-10 lg:text-3xl h-[30vh] lg:h-auto"
+         className="work-left flex flex-col items-start justify-center text-3xl px-10 lg:text-3xl h-[30vh] lg:h-auto"
          style={{
             transform: `translateY(${translateY}px)`
          }}>
          <div className="leading-10">
+         <p className="text-xl font-bold text-green-700">Projetos</p>
             {children}
          </div>
       </div>

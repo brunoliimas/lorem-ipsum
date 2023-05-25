@@ -22,7 +22,7 @@ const Home: NextPage = () => {
       
       <Masterhead />
       <AboutUs/>
-      <Skills />
+      {/* <Skills /> */}
       <Works />
       <TrustedBy/>
       <ContactUs />
