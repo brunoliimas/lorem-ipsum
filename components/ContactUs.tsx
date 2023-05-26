@@ -4,7 +4,7 @@ import React, { useCallback, useState } from 'react'
 const ContactUs: React.FC = () => {
     return (
         <div className="bg-black text-white flex flex-col justify-center min-h-screen">
-            <div className="flex-1 flex flex-col justify-center items-center py-10 lg:py-6">
+            <div className="flex-1 flex flex-col justify-center items-center py-10">
                 <div className="pb-10">
                     <Image
                         src="/assets/logo.svg"
