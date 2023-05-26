@@ -10,7 +10,8 @@ module.exports = {
     },
     extend: {
       colors:{
-        'green-700' : '#03A26E'
+        'green-700' : '#03A26E',
+        'green-800' : '#02704C'
       },
       height: {
         'half-screen': '50vh'
