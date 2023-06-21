@@ -13,8 +13,8 @@ const Footer: React.FC = () => (
             className="cursor-pointer"
          />
       </Link>
-      <Link href="/terms">Terms</Link>
-      <Link href="/privacy">Privacy Polity</Link>
+      {/* <Link href="/terms">Terms</Link>
+      <Link href="/privacy">Privacy Polity</Link> */}
    </footer>
 )
 
