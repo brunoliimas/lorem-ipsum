@@ -13,7 +13,7 @@ const ContactUs: React.FC = () => {
                         alt="Logo"
                     />
                 </div>
-                <h2 className="text-4xl font-bold">Entre em contato comigo!</h2>
+                <h2 className="text-4xl font-bold text-center">Entre em contato comigo!</h2>
 
                 <form action="" className='flex flex-col gap-4 mt-16 px-10 lg:mt-20 min-w-full md:min-w-[500px]'>
                     <input
