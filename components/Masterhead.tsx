@@ -3,6 +3,7 @@ import Image from "next/image"
 import { ScrollContext } from "./utils/scroll-observer";
 // import Logo from '/assets/logo.svg'
 
+
 const Masterhead: React.FC = () => {
    const [imageLoaded, setImageLoaded] = useState(false)
    const refContainer = useRef<HTMLDivElement>(null)
@@ -29,9 +30,9 @@ const Masterhead: React.FC = () => {
             autoPlay
             loop muted
             playsInline
-            className="absolute w-full h-full object-cover" src="/assets/masthead-bg-03.mp4">
+            className="absolute w-full h-full object-cover" src="/assets/masthead-bg.mp4">
             {/* <source src="/assets/masthead-me-bg.mp4" type="video/mp4; codecs=hvc1" /> */}
-            <source src="/assets/masthead-bg-03.mp4" type="video/mp4; codecs=hvc1" />
+            <source src="/assets/masthead-bg.mp4" type="video/mp4; codecs=hvc1" />
             {/* <source src="/assets/masthead-bg.mp4" type="video/webm; codecs=vp9" /> */}
          </video>
          <div className={`flex-grow-0 pt-10 transition-opacity duration-1000 drop-shadow-[0_5px_3px_rgba(0,0,0,0.2)] ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}>
