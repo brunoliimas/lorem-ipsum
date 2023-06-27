@@ -83,7 +83,7 @@ const ContactUs: React.FC = () => {
         setStatus(prevStatus => ({ ...prevStatus, submitting: true }))
         axios({
             method: 'POST',
-            url: process.env.NEXT_PUBLIC_CONTACT_FORM_ENDPOINT_URL,
+            url: process.env.NEXT_PUBLIC_FORM,
             data: inputs
         }).then(_response => {
             handleServerResponse(true, 'Obrigado pelo contato, sua mensagem foi enviada!')
