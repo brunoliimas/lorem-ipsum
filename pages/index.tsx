@@ -15,12 +15,11 @@ const Home: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Bruno Lima - Desenvolvedor Front End</title>
-        <meta name="description" content=" Desenvolvedor Front End Javascript - ReactJS e NextJs" />
+        <title>Bruno Lima - Desenvolvedor Front End JavaScript | ReactJS e Next.js</title>
+        <meta name="description" content="Sou um desenvolvedor Front End especializado em JavaScript, ReactJS e Next.js, com experiência na criação de interfaces de usuário responsivas e interativas. Confira meu portfolio para ver meus projetos recentes" />
         <link rel="icon" href="/favicon.svg" />
-        <meta name="keywords" content="Front End, Desenvolvedor de Software, HTML, CSS, Javascript, ReactJS, NexJS, SASS, TailwindCSS" />
-        <meta name="robots" content="" />
-        <meta name="revisit-after" content="1 day" />
+        <meta name="keywords" content="Front End, Desenvolvedor de Software, HTML, CSS, Javascript, ReactJS, NexJS, SASS, TailwindCSS, desenvolvimento web, UI/UX, desenvolvedor front end freelancer" />
+        <meta name="robots" content="index, follow" />
         <meta name="language" content="Portuguese" />
         <meta name="generator" content="N/A" />
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
