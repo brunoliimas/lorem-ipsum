@@ -15,16 +15,22 @@ const Home: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Bruno Lima</title>
-        <meta name="description" content="Desenvolvedor Front End - ReactJS e NextJS" />
+        <title>Bruno Lima - Desenvolvedor Front End</title>
+        <meta name="description" content=" Desenvolvedor Front End Javascript - ReactJS e NextJs" />
         <link rel="icon" href="/favicon.svg" />
+        <meta name="keywords" content="Front End, Desenvolvedor de Software, HTML, CSS, Javascript, ReactJS, NexJS, SASS, TailwindCSS" />
+        <meta name="robots" content="" />
+        <meta name="revisit-after" content="1 day" />
+        <meta name="language" content="Portuguese" />
+        <meta name="generator" content="N/A" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
       </Head>
-      
+
       <Masterhead />
-      <AboutUs/>
+      <AboutUs />
       {/* <Skills /> */}
       <Works />
-      <TrustedBy/>
+      <TrustedBy />
       <ContactUs />
       <Footer />
     </>
