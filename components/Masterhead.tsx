@@ -30,10 +30,9 @@ const Masterhead: React.FC = () => {
             autoPlay
             loop muted
             playsInline
-            className="absolute w-full h-full object-cover" src="/assets/masthead-bg.mp4">
-            {/* <source src="/assets/masthead-me-bg.mp4" type="video/mp4; codecs=hvc1" /> */}
+            className="absolute w-full h-full object-cover" src="/assets/masthead-bg.webm">
             <source src="/assets/masthead-bg.mp4" type="video/mp4; codecs=hvc1" />
-            {/* <source src="/assets/masthead-bg.mp4" type="video/webm; codecs=vp9" /> */}
+            <source src="/assets/masthead-bg.webm" type="video/webm; codecs=vp9" />
          </video>
          <div className={`flex-grow-0 pt-10 transition-opacity duration-1000 drop-shadow-[0_5px_3px_rgba(0,0,0,0.2)] ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}>
             <Image
