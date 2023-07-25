@@ -88,11 +88,31 @@ const projectTools = {
       tool6: {
          name: "Greensock (GSAP)"
       }
+   },
+   project5: {
+      tool1: {
+         name: "HTML"
+      },
+      tool2: {
+         name: "CSS"
+      },
+      tool3: {
+         name: "Javascript"
+      },
+      tool4: {
+         name: "SASS"
+      },
+      tool5: {
+         name: "API Rest"
+      },
+      tool6: {
+         name: "Fetch API"
+      }
    }
 }
 
 const Works = () => (
-   <TileWrapper numOfPages={4}>
+   <TileWrapper numOfPages={5}>
       <TileBackground>
          <WorkBackground />
       </TileBackground>
@@ -142,7 +162,10 @@ const Works = () => (
                   <WorkLeft progress={progress}>
                      <h3 className="text-xl md:text-2xl">Site de assistência e loja de acessórios para celular</h3>
                      <p className="text-3xl md:text-4xl font-semibold tracking-tight">
-                        <WorkLink href="https://github.com/brunoliimas/stop-cell">StopCell</WorkLink> 
+                        <WorkLink href="https://brunoliimas.github.io/stop-cell/">StopCell</WorkLink>
+                     </p>
+                     <p className="text-xl md:text-2xl font-semibold tracking-tight">
+                        <WorkLink href="https://github.com/brunoliimas/stop-cell">Code</WorkLink>
                      </p>
                      {Object.values(projectTools.project3).map((tool, index) => (
                         <Tools key={index} name={tool.name} />
@@ -161,14 +184,39 @@ const Works = () => (
                   <WorkLeft progress={progress}>
                      <h3 className="text-xl md:text-2xl">Site com parallax ao rolar a página</h3>
                      <p className="text-3xl md:text-4xl font-semibold tracking-tight">
-                        <WorkLink href="https://github.com/brunoliimas/parallax-gsap/">parallax-gsap</WorkLink> 
+                        <WorkLink href="https://parallax-gsap.vercel.app/">Parallax GSAP</WorkLink>
+                     </p>
+                     <p className="text-xl md:text-2xl font-semibold tracking-tight">
+                        <WorkLink href="https://github.com/brunoliimas/parallax-gsap/">Code</WorkLink>
                      </p>
                      {Object.values(projectTools.project4).map((tool, index) => (
                         <Tools key={index} name={tool.name} />
                      ))}
                   </WorkLeft>
                   <WorkRight progress={progress}>
-                     <Image src="/assets/works/parallax.png" layout="responsive" width={828} height={1415} alt="Iphone" />
+                     <Image src="/assets/works/parallax.png" layout="responsive" width={828} height={1415} alt="parallax" />
+                  </WorkRight>
+               </WorkContainer>
+            )}
+         ></Tile>
+         <Tile
+            page={4}
+            renderContent={({ progress }) => (
+               <WorkContainer>
+                  <WorkLeft progress={progress}>
+                     <h3 className="text-xl md:text-2xl">Galeria de Imagens com Javascript</h3>
+                     <p className="text-3xl md:text-4xl font-semibold tracking-tight">
+                        <WorkLink href="https://brunoliimas.github.io/image-galery/">Image Galery</WorkLink>
+                     </p>
+                     <p className="text-xl md:text-2xl font-semibold tracking-tight">
+                        <WorkLink href="https://github.com/brunoliimas/image-galery">Code</WorkLink>
+                     </p>
+                     {Object.values(projectTools.project5).map((tool, index) => (
+                        <Tools key={index} name={tool.name} />
+                     ))}
+                  </WorkLeft>
+                  <WorkRight progress={progress}>
+                     <Image src="/assets/works/image-galery.png" layout="responsive" width={828} height={1415} alt="image-galery" />
                   </WorkRight>
                </WorkContainer>
             )}
