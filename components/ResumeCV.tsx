@@ -6,6 +6,8 @@ import { HiOutlineMail } from 'react-icons/hi'
 import Footer from "./Footer"
 import { ResumeData } from "../resumeData"
 import Button from "./ui/Button"
+import Link from "next/link"
+
 
 interface ResumeCVProps {
     resumeData: ResumeData; // Usando o tipo definido anteriormente
@@ -18,12 +20,14 @@ const ResumeCV: React.FC<ResumeCVProps> = ({ resumeData }) => {
                 <div className="container px-4 md:px-8 2xl:px-20">
                     <header className="flex flex-col text-center md:text-left md:flex-row items-center justify-start">
                         <div className="mb-8 md:mb-0 bg-green-800 p-8 rounded-full shadow-lg hover:bg-green-700 transition-all duration-500">
-                            <Image
-                                src="/assets/logo.svg"
-                                width={100}
-                                height={100}
-                                alt="Logo"
-                            />
+                            <Link href="/">
+                                <Image
+                                    src="/assets/logo.svg"
+                                    width={100}
+                                    height={100}
+                                    alt="Logo"
+                                />
+                            </Link>
                         </div>
                         <div className="md:ml-8">
                             <h1 className="text-5xl font-semibold">{resumeData.profile.name}</h1>
