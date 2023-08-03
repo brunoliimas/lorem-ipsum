@@ -11,7 +11,7 @@ interface ResumeCVProps {
     resumeData: ResumeData; // Usando o tipo definido anteriormente
 }
 
-const ResumeCV = ({ resumeData }: ResumeCVProps) => {
+const ResumeCV: React.FC<ResumeCVProps> = ({ resumeData }) => {
     return (
         <>
             <main className="py-20 transition-all duration-500">
@@ -98,7 +98,7 @@ const ResumeCV = ({ resumeData }: ResumeCVProps) => {
                     </section>
                 </div>
                 <div className="flex items-center justify-center">
-                    <Button name="Baixar Currículo" href="/assets/curriculo_bruno_lima.pdf" download="Currículo - Bruno Lima"/>
+                    <Button name="Baixar Currículo" href="/assets/curriculo_bruno_lima.pdf" download="Currículo - Bruno Lima" />
                 </div>
             </main>
             <Footer />
