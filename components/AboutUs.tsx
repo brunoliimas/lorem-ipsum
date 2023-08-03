@@ -23,7 +23,7 @@ const AboutUs: React.FC = () =>{
                <Member id="01" name="Bruno" jobTitle="Front End" socialId="@brunoliimas" link="https://github.com/brunoliimas"/>
             </div>
             <div className="mt-8">
-               <Button href="/assets/curriculo_bruno_lima.pdf" name="Currículo" download="Curriculo Bruno Lima"/>
+               <Button href="/resume" name="Currículo"/>
             </div>
          </div>
       </section>

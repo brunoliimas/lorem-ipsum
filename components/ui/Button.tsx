@@ -1,4 +1,6 @@
+import Link from 'next/link';
 import React from 'react';
+
 
 import { FiDownload } from 'react-icons/fi'
 
@@ -28,9 +30,9 @@ const Button: React.FC<ButtonProps> = ({ name, href, download }) => {
     // Renderiza o botão normal
     return (
         <button className={styleButton}>
-            <a href={href}>
+            <Link href={href}>
                 {name}
-            </a>
+            </Link>
         </button>
     );
 };

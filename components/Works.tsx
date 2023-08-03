@@ -2,7 +2,7 @@ import Image from "next/image";
 import React from "react"
 import { Tile, TileBackground, TileContent, TileWrapper } from "./Tile";
 import { WorkBackground, WorkContainer, WorkLeft, WorkRight, WorkLink } from "./Work";
-import Tools from "./ui/Tools";
+import { Tools } from "./ui/Tools";
 
 
 const projectTools = {
@@ -126,9 +126,11 @@ const Works = () => (
                      <p className="text-3xl md:text-4xl font-semibold tracking-tight">
                         <WorkLink href="https://github.com/brunoliimas/superflix">Superflix</WorkLink>
                      </p>
-                     {Object.values(projectTools.project1).map((tool, index) => (
-                        <Tools key={index} name={tool.name} />
-                     ))}
+                     <div className="mt-4">
+                        {Object.values(projectTools.project1).map((tool, index) => (
+                           <Tools key={index} name={tool.name} />
+                        ))}
+                     </div>
                   </WorkLeft>
                   <WorkRight progress={progress}>
                      <Image src="/assets/works/superflix_react.png" layout="responsive" width={828} height={1415} alt="Iphone" />
@@ -145,9 +147,11 @@ const Works = () => (
                      <p className="text-3xl md:text-4xl font-semibold tracking-tight">
                         <WorkLink href="https://github.com/brunoliimas/pizzaria-udemy">Pizzaria comanda</WorkLink> (Desktop e Mobile)
                      </p>
-                     {Object.values(projectTools.project2).map((tool, index) => (
-                        <Tools key={index} name={tool.name} />
-                     ))}
+                     <div className="mt-4">
+                        {Object.values(projectTools.project2).map((tool, index) => (
+                           <Tools key={index} name={tool.name} />
+                        ))}
+                     </div>
                   </WorkLeft>
                   <WorkRight progress={progress}>
                      <Image src="/assets/works/pizzaria_comanda.png" layout="responsive" width={828} height={1415} alt="Iphone" />
@@ -167,9 +171,11 @@ const Works = () => (
                      <p className="text-xl md:text-2xl font-semibold tracking-tight">
                         <WorkLink href="https://github.com/brunoliimas/stop-cell">Code</WorkLink>
                      </p>
-                     {Object.values(projectTools.project3).map((tool, index) => (
-                        <Tools key={index} name={tool.name} />
-                     ))}
+                     <div className="mt-4">
+                        {Object.values(projectTools.project3).map((tool, index) => (
+                           <Tools key={index} name={tool.name} />
+                        ))}
+                     </div>
                   </WorkLeft>
                   <WorkRight progress={progress}>
                      <Image src="/assets/works/desktop-03.png" layout="responsive" width={828} height={1415} alt="Iphone" />
@@ -189,9 +195,11 @@ const Works = () => (
                      <p className="text-xl md:text-2xl font-semibold tracking-tight">
                         <WorkLink href="https://github.com/brunoliimas/parallax-gsap/">Code</WorkLink>
                      </p>
-                     {Object.values(projectTools.project4).map((tool, index) => (
-                        <Tools key={index} name={tool.name} />
-                     ))}
+                     <div className="mt-4">
+                        {Object.values(projectTools.project4).map((tool, index) => (
+                           <Tools key={index} name={tool.name} />
+                        ))}
+                     </div>
                   </WorkLeft>
                   <WorkRight progress={progress}>
                      <Image src="/assets/works/parallax.png" layout="responsive" width={828} height={1415} alt="parallax" />
@@ -211,9 +219,11 @@ const Works = () => (
                      <p className="text-xl md:text-2xl font-semibold tracking-tight">
                         <WorkLink href="https://github.com/brunoliimas/image-galery">Code</WorkLink>
                      </p>
-                     {Object.values(projectTools.project5).map((tool, index) => (
-                        <Tools key={index} name={tool.name} />
-                     ))}
+                     <div className="mt-4">
+                        {Object.values(projectTools.project5).map((tool, index) => (
+                           <Tools key={index} name={tool.name} />
+                        ))}
+                     </div>
                   </WorkLeft>
                   <WorkRight progress={progress}>
                      <Image src="/assets/works/image-galery.png" layout="responsive" width={828} height={1415} alt="image-galery" />

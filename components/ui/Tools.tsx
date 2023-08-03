@@ -2,14 +2,17 @@ import React from 'react';
 
 interface ToolsProps {
     name: string;
+    primary?: boolean
 }
 
-const Tools: React.FC<ToolsProps> = ({ name }) => {
+export const Tools = ({ name, primary }: ToolsProps) => {
     return (
-        <div className='hidden md:inline-block mt-4 mr-2 px-4 py-2 rounded-full border border-white bg-transparent'>
+        <div
+            className={`px-4 py-2 rounded-full border bg-transparent
+            ${!primary ?
+                    'hidden md:inline-block border-white' :
+                    'inline-block border-green-800 text-green-800'}`}>
             <p className='text-sm'>{name}</p>
         </div>
     );
 };
-
-export default Tools;
