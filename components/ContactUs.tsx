@@ -106,16 +106,16 @@ const ContactUs: React.FC = () => {
                 </div>
                 <h2 className="text-4xl font-bold text-center">Entre em contato comigo!</h2>
                 <div className="mt-8 flex gap-4">
-                    <a className="bg-green-800 hover:bg-green-700 transition-all duration-500 p-2 rounded-lg" href="https://wa.me/5511960744779?text=Ol%C3%A1%2C+tudo+bem%3F+" target="_blank">
+                    <a className="bg-green-800 hover:bg-green-700 transition-all duration-500 p-2 rounded-lg" href="https://wa.me/5511960744779?text=Ol%C3%A1%2C+tudo+bem%3F+" target="_blank" rel="noopener noreferrer">
                         <BsWhatsapp size={30} color="#ffffff" />
                     </a>
-                    <a className="bg-green-800 hover:bg-green-700 transition-all duration-500 p-2 rounded-lg" href="https://www.linkedin.com/in/brunoliimas/" target="_blank">
+                    <a className="bg-green-800 hover:bg-green-700 transition-all duration-500 p-2 rounded-lg" href="https://www.linkedin.com/in/brunoliimas/" target="_blank" rel="noopener noreferrer">
                         <BsLinkedin size={30} color="#ffffff" />
                     </a>
-                    <a className="bg-green-800 hover:bg-green-700 transition-all duration-500 p-2 rounded-lg" href="https://github.com/brunoliimas" target="_blank">
+                    <a className="bg-green-800 hover:bg-green-700 transition-all duration-500 p-2 rounded-lg" href="https://github.com/brunoliimas" target="_blank" rel="noopener noreferrer">
                         <BsGithub size={30} color="#ffffff" />
                     </a>
-                    <a className="bg-green-800 hover:bg-green-700 transition-all duration-500 p-2 rounded-lg" href="mailto:ibrunoliimas@gmail.com">
+                    <a className="bg-green-800 hover:bg-green-700 transition-all duration-500 p-2 rounded-lg" href="mailto:ibrunoliimas@gmail.com" rel="noopener noreferrer">
                         <HiOutlineMail size={30} color="#ffffff" />
                     </a>
                 </div>
