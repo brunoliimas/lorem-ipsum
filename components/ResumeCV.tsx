@@ -3,6 +3,7 @@ import { TitleSection } from "./ui/TitleSection"
 import { Tools } from "./ui/Tools"
 import { BsWhatsapp, BsLinkedin, BsGithub } from 'react-icons/bs'
 import { HiOutlineMail } from 'react-icons/hi'
+import { MdArrowBack } from 'react-icons/md'
 import Footer from "./Footer"
 import { ResumeData } from "../resumeData"
 import Button from "./ui/Button"
@@ -16,8 +17,13 @@ interface ResumeCVProps {
 const ResumeCV: React.FC<ResumeCVProps> = ({ resumeData }) => {
     return (
         <>
+            <header className="w-full bg-black py-10">
+                <div className="container px-4 md:px-8 flex justify-start">
+                    <Button href="/" back />
+                </div>
+            </header>
             <main className="py-20 transition-all duration-500">
-                <div className="container px-4 md:px-8 2xl:px-20">
+                <div className="container px-4 md:px-8">
                     <header className="flex flex-col text-center md:text-left md:flex-row items-center justify-start">
                         <div className="mb-8 md:mb-0 bg-green-800 p-8 rounded-full shadow-lg hover:bg-green-700 transition-all duration-500">
                             <Link href="/">
