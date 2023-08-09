@@ -4,6 +4,7 @@ interface Experience {
     companyName: string;
     entry: string;
     exit: string;
+    knowledge: string[];
     tools: string[];
     roles: string[];
 }
@@ -80,11 +81,30 @@ export const resumeData: ResumeData = {
             entry: "Junho de 2020",
             exit: "Abril de 2023",
             roles: [
-                "Criação de Visual Aid para Veeva",
-                "Desenvolvimento de sites, landing Pages e e-mails marketing",
-                "Manutenção em sites com Wordpress"
+                "Desenhar soluções práticas para resolver problemas apresentados pelos clientes da agência;",
+                "Participar de revisões de código;",
+                "Desenvolvimento de e-mails marketing e VA (Visual Aid para CRM Veeva) utilizando o GSAP (biblioteca de animações javascript);",
+                "Desenvolvimento websites responsivos e landing pages usando ReactJS e NextJS*; (*Projetos pessoais);",
+                "Integração com APIs RESTful;",
+                "Experiência com HTML5, CSS3, Sass, TailwindCSS, StyledComponents, JavaScript e TypeScript em projetos diversos;",
+                "Conhecimento de design responsivo e habilidade para criar interfaces de usuário flexíveis e escaláveis fiel ao design apresentado pela equipe de UX/UI;",
+                "Versionamento de código com ferramentas de controle de versão, como Git.",
             ],
-            tools: ["HTML", "CSS", "SASS", "JAVASCRIPT", "REACT", "GIT", "VEEVA", "PHOTOSHOP", "ILLUSTRATOR", "XD", "WORDPRESS"]
+            knowledge: [
+                "Fundamentos de Front End e lógica de programação;",
+                "Conhecimento em programação orientada a objetos e padrões de design;",
+                "Responsividade e Frameworks (NextJs, TailwindCSS/Bootstrap);",
+                "Ciclo de vida de componentes e aplicação - ReactJS;",
+                "Hooks e Components - ReactJS;",
+                "React Context API e Redux - ReactJS;",
+                "Consumo de API - Fetch e Axios;",
+                "Formulários;",
+                "Geolocalização, interação com usuário (microfone, câmera);",
+                "Build e Deploy;",
+                "GIT e Versionamento.",
+                "Kanban - Metodologia ágei"
+            ],
+            tools: ["Html", "Css", "Sass", "Tailwindcss", "Bootstrap", "Javascript", "React", "Next", "Axios", "Gsap", "Git", "Api", "Veeva", "Photoshop", "Illustrator", "Xd", "Cms"]
         },
         {
             companyName: "Tango Tech",
@@ -93,10 +113,26 @@ export const resumeData: ResumeData = {
             entry: "Outubro de 2019",
             exit: "Abril de 2020",
             roles: [
-                "Desenvolvimento de marketplace",
-                "Criação de interfaces para aplicações internas"
+                "Desenvolvimento Frontend em aplicação de marketplace usando o ReactJS e Sass para estilização e responsividade;",
+                "Desenvolvimento Frontend de dashboard para sistema com comunicação SAP usando o VueJS;",
+                "Criação de funcionalidades para as aplicações com qualidade, manutenibilidade e escalável e design responsivo;",
+                "Integração com APIs RESTful e CRUD API."
             ],
-            tools: ["HTML", "CSS", "SASS", "JAVASCRIPT", "REACT", "GIT", "GITFLOW", "CYPRESS", "REDUX", "VUE", "XD"]
+            knowledge: [
+                "Conhecimento e prática usando Javascript(ES6) puro e com framework de front end: ReactJS e VueJS;",
+                "HTML5, CSS3, Sass, StyledComponents e JavaScript, VueJS;",
+                "Git e gitflow;",
+                "Testes de unidade e integrados(E2E) usando o Cypress;",
+                "Fluxos de CI e CD;",
+                "Experiência em integrações com APIs;",
+                "Comunicação ativa com a equipe de desenvolvedores e designers para definição de arquitetura da solução e melhor usabilidade;",
+                "Gerenciamento de Pacotes - NPM e Yarn",
+                "UI e Prototipação de interfaces usando o Adobe XD.",
+                "SCRUM e Kanban - Metodologias ágeis"
+
+
+            ],
+            tools: ["Html", "Css", "Sass", "Styledcomponent", "Javascript", "ReactJS", "VueJS", "Git", "Gitflow", "Cypress", "Redux", "Xd"]
         },
         {
             companyName: "Agência Mad Go",
@@ -105,11 +141,18 @@ export const resumeData: ResumeData = {
             entry: "Junho de 2019",
             exit: "Outubro de 2019",
             roles: [
-                "Desenvolvimento de sites e landing Pages e e-mails marketing",
+                "Desenvolvimento websites responsivos, landing pages e e-mails marketing",
                 "Manutenção em sites com Wordpress",
                 "Criativos para mídias sociais"
             ],
-            tools: ["HTML", "CSS", "SASS", "JAVASCRIPT", "WORDPRESS", "PHOTOSHOP", "ILLUSTRATOR", "XD"]
+            knowledge: [
+                "HTML5, CSS3, e JavaScript;",
+                "Lógica de programação e fundamentos básicos de desenolvimento",
+                "Trabalho em equipe",
+                "Planejamento de campanhas de marketing e critivos",
+                "Cronogramas e Prazos",
+            ],
+            tools: ["Html", "Css", "Sass", "Javascript", "Wordpress", "Photoshop", "Illustrator", "Xd"]
         },
         {
             companyName: "McCann Health",
@@ -120,7 +163,12 @@ export const resumeData: ResumeData = {
             roles: [
                 "Funções administrativas"
             ],
-            tools: ["EXCEL", "PHOTOSHOP", "ILLUSTRATOR"]
+            knowledge: [
+                "Trabalho em equipe",
+                "Excel intermediário",
+                "SCRUM"
+                ],
+            tools: ["Excel", "Photoshop", "Illustrator"]
         },
     ],
     academicEducation: [

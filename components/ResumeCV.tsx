@@ -59,11 +59,20 @@ const ResumeCV: React.FC<ResumeCVProps> = ({ resumeData }) => {
                                         <Tools key={index} name={tool} primary />
                                     ))}
                                 </div>
+                                <div>
+                                <h3 className="font-semibold text-lg mt-4 mb-2">Funções Exercidas</h3>
                                 <ul className="list-disc">
                                     {work.roles.map((role, index) => (
                                         <li className="text-base" key={index}>{role}</li>
                                     ))}
                                 </ul>
+                                <h3 className="font-semibold text-lg mt-4 mb-2">Conhecimentos adquiridos</h3>
+                                <ul className="list-disc">
+                                    {work.knowledge.map((know, index) => (
+                                        <li className="text-base" key={index}>{know}</li>
+                                    ))}
+                                </ul>
+                                </div>
                             </div>
                         ))}
                     </section>
