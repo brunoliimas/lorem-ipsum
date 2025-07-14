@@ -51,7 +51,7 @@ export const resumeData: ResumeData = {
         occupation: "Desenvolvedor de Software Pleno",
         city: "São Paulo/SP",
         description: [
-            "Desenvolvedor Fullstack JavaScript com mais de 6 anos de experiência na área de tecnologia, atuando com foco em ReactJS, Next.js e Node.js. Tenho domínio em TypeScript, Tailwind CSS e integração com APIs REST, além de experiência com testes unitários (Jest e Cypress) e animações com GSAP e Framer Motion. Também possuo conhecimentos em WordPress.",
+            "Desenvolvedor Full Stack JavaScript com mais de 6 anos de experiência na área de tecnologia, atuando com foco em ReactJS, Next.js e Node.js. Tenho domínio em TypeScript, Tailwind CSS e integração com APIs REST, além de experiência com testes unitários (Jest e Cypress) e animações com GSAP e Framer Motion. Também possuo conhecimentos em WordPress.",
 
             "Criativo, organizado e proativo, gosto de desenvolver interfaces modernas, acessíveis e performáticas, com atenção especial à experiência do usuário. Já atuei em agências globais como McCann Health e Havas Life, contribuindo em projetos do setor de saúde e campanhas digitais de grande impacto.",
 
@@ -87,7 +87,7 @@ export const resumeData: ResumeData = {
     works: [
         {
             companyName: "Havas Life",
-            occupation: "Desenvolvedor Fullstack",
+            occupation: "Desenvolvedor Full Stack",
             level: "Pleno",
             entry: "2023-11",
             exit: "2025-06",
