@@ -38,13 +38,17 @@ const ResumeCV: React.FC<ResumeCVProps> = ({ resumeData }) => {
                         <div className="md:ml-8">
                             <h1 className="text-5xl font-semibold">{resumeData.profile.name}</h1>
                             <h2 className="text-2xl font-medium">{resumeData.profile.occupation}</h2>
+                            {/* <p>{resumeData.profile.summary}</p> */}
                             <h3 className="text-lg font-medium">{resumeData.profile.city}</h3>
                         </div>
                     </header>
+
                     <article className="my-10 w-full xl:w-4/5">
-                        <p className="text-base">
-                            {resumeData.profile.description}
-                        </p>
+                        {resumeData.profile.description.map((paragraph, index) => (
+                            <p key={index} className="text-base mb-4">
+                                {paragraph}
+                            </p>
+                        ))}
                         <span className="text-green-800 text-base font-bold">Disponível para novos projetos</span>.
                     </article>
                     <section className="my-10 border-t pt-10">
@@ -60,43 +64,47 @@ const ResumeCV: React.FC<ResumeCVProps> = ({ resumeData }) => {
                                     ))}
                                 </div>
                                 <div>
-                                <h3 className="font-semibold text-lg mt-4 mb-2">Funções Exercidas</h3>
-                                <ul className="list-disc">
-                                    {work.roles.map((role, index) => (
-                                        <li className="text-base" key={index}>{role}</li>
-                                    ))}
-                                </ul>
-                                <h3 className="font-semibold text-lg mt-4 mb-2">Conhecimentos adquiridos</h3>
-                                <ul className="list-disc">
-                                    {work.knowledge.map((know, index) => (
-                                        <li className="text-base" key={index}>{know}</li>
-                                    ))}
-                                </ul>
+                                    <h3 className="font-semibold text-lg mt-4 mb-2">Funções Exercidas</h3>
+                                    <ul className="list-disc">
+                                        {work.roles.map((role, index) => (
+                                            <li className="text-base" key={index}>{role}</li>
+                                        ))}
+                                    </ul>
+                                    <h3 className="font-semibold text-lg mt-4 mb-2">Conhecimentos adquiridos</h3>
+                                    <ul className="list-disc">
+                                        {work.knowledge.map((know, index) => (
+                                            <li className="text-base" key={index}>{know}</li>
+                                        ))}
+                                    </ul>
                                 </div>
                             </div>
                         ))}
                     </section>
-                    <section className="my-10 border-t pt-10">
-                        <TitleSection title="Formação" />
-                        {resumeData.academicEducation.map((academy, index) => (
-                            <div key={index} className="my-6">
-                                <h3 className="font-semibold text-lg">{academy.specialization}</h3>
-                                <h3 className="font-semibold text-green-800">{academy.schoolName}</h3>
-                                <span className="block italic">{academy.time}</span>
-                                <span className="block">{academy.status}</span>
-                            </div>
-                        ))}
+                    <section className="my-10 border-t pt-10 flex items-start justify-between">
+                        <div className="w-1/2">
+                            <TitleSection title="Formação" />
+                            {resumeData.academicEducation.map((academy, index) => (
+                                <div key={index} className="my-6">
+                                    <h3 className="font-semibold text-lg">{academy.specialization}</h3>
+                                    <h3 className="font-semibold text-green-800">{academy.schoolName}</h3>
+                                    <span className="block italic">{academy.time}</span>
+                                    <span className="block">{academy.status}</span>
+                                </div>
+                            ))}
+                        </div>
+                        <div className="w-1/2">
+                            <TitleSection title="Formação Extra e Certificados" />
+                            {resumeData.certifications.map((certification, index) => (
+                                <div className="mt-6" key={index}>
+                                    <h3 className="font-semibold text-lg">{certification.specialization}</h3>
+                                    <h3 className="font-semibold text-green-800">{certification.schoolName}</h3>
+                                    <span className="italic">{certification.duration}</span>
+                                    <span className="block">{certification.status}</span>
+                                </div>
+                            ))}
+                        </div>
                     </section>
-                    <section className="my-10 border-t pt-10">
-                        <TitleSection title="Formação Extra e Certificados" />
-                        {resumeData.certifications.map((certification, index) => (
-                            <div className="mt-6" key={index}>
-                                <h3 className="font-semibold text-lg">{certification.specialization}</h3>
-                                <h3 className="font-semibold text-green-800">{certification.schoolName}</h3>
-                                <span className="italic">{certification.duration}</span>
-                            </div>
-                        ))}
-                    </section>
+
                     <section className="my-10 border-t pt-10">
                         <TitleSection title="Contato" />
                         <div className="mt-8 flex flex-col items-start gap-4">
