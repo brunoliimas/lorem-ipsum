@@ -51,15 +51,15 @@ export const resumeData: ResumeData = {
         occupation: "Desenvolvedor de Software Pleno",
         city: "São Paulo/SP",
         description: [
-            "Desenvolvedor Full Stack JavaScript com mais de 6 anos de experiência na área de tecnologia, atuando com foco em ReactJS, Next.js e Node.js. Tenho domínio em TypeScript, Tailwind CSS e integração com APIs REST, além de experiência com testes unitários (Jest e Cypress) e animações com GSAP e Framer Motion. Também possuo conhecimentos em WordPress.",
+            "Desenvolvedor Full Stack JavaScript com mais de 6 anos de experiência, atuando com foco em ReactJS, Next.js e Node.js. Tenho domínio em TypeScript, Tailwind CSS e integração com APIs RESTful, além de experiência com testes unitários (Jest e Cypress) e animações com GSAP e Framer Motion. Também possuo conhecimentos em WordPress e AWS, com aplicações práticas utilizando serviços como S3, Lambda e CloudFront.",
 
-            "Criativo, organizado e proativo, gosto de desenvolver interfaces modernas, acessíveis e performáticas, com atenção especial à experiência do usuário. Já atuei em agências globais como McCann Health e Havas Life, contribuindo em projetos do setor de saúde e campanhas digitais de grande impacto.",
+            "Sou criativo, organizado e proativo, com grande atenção à experiência do usuário e boas práticas de acessibilidade e performance. Já atuei em agências globais como McCann Health e Havas Life, contribuindo em projetos do setor de saúde e campanhas digitais de alto impacto. Em alguns desses projetos, implementei soluções utilizando recursos da AWS para garantir escalabilidade e distribuição eficiente.",
 
-            "Estudo Ciências da Computação e me mantenho em constante evolução profissional através de comunidades tech (Discord), newsletters e formações práticas como os cursos da Rocketseat. Atualmente, também estou me aprofundando em Python e inteligência artificial.",
+            "Curso Ciências da Computação, onde aprofundei meus conhecimentos em computação em nuvem, especialmente em AWS. Me mantenho em constante evolução profissional por meio de comunidades tech (Discord), newsletters e formações práticas como os cursos da Rocketseat. Atualmente, também estou me aprofundando em Python e inteligência artificial.",
 
-            "Aberto a novas oportunidades, tanto em projetos fixos quanto freelas, remoto ou presencial. O importante é estar construindo soluções que façam a diferença."
+            "Estou aberto a novas oportunidades — fixas ou freelas, presenciais ou remotas — com foco em construir soluções tecnológicas modernas, eficazes e que realmente façam a diferença."
         ],
-        summary: "Desenvolvedor Front End pleno, especializado em ReactJS, Next.js e soluções digitais focadas em performance e UX, com ampla experiência no setor de saúde.",
+        summary: "Desenvolvedor Full Stack pleno, especializado em ReactJS, Next.js e soluções digitais focadas em performance e UX, com ampla experiência no setor de saúde.",
         socialLinks: [
             {
                 name: "+55 11 9 6074 4779",
@@ -93,10 +93,11 @@ export const resumeData: ResumeData = {
             exit: "2025-06",
             roles: [
                 "Desenvolvimento de interfaces web modernas e acessíveis para campanhas digitais do setor de saúde, com foco no ecossistema Veeva.",
-                "Atuação ativa no desenvolvimento e manutenção de soluções para Veeva CRM, incluindo e-mails marketing e Visual Aids",
+                "Atuação ativa no desenvolvimento e manutenção de soluções para Veeva CRM, incluindo e-mails marketing e Visual Aids.",
                 "Criação de plugins para Figma que automatizam processos e aceleram o fluxo de trabalho das equipes de design e desenvolvimento.",
                 "Implementação de projetos utilizando ReactJS, Next.js e integração com APIs RESTful.",
                 "Aplicação de animações com GSAP e Framer Motion para melhorar a interatividade e experiência do usuário.",
+                "Gerenciamento e deploy de aplicações com uso de serviços da AWS, como S3 para armazenamento, CloudFront para distribuição de conteúdo e Lambda para funções serverless."
             ],
             knowledge: [
                 "Domínio em ReactJS, Next.js, TypeScript e Tailwind CSS.",
@@ -105,6 +106,7 @@ export const resumeData: ResumeData = {
                 "Práticas de testes unitários e integração contínua.",
                 "Boas práticas de acessibilidade e performance web.",
                 "Metodologias ágeis para desenvolvimento colaborativo e iterativo.",
+                "Familiaridade com serviços da AWS como S3, Lambda, CloudFront e EC2 para hosting e processamento de aplicações."
             ],
             tools: [
                 "React",
@@ -119,9 +121,10 @@ export const resumeData: ResumeData = {
                 "API REST",
                 "Figma",
                 "Veeva",
+                "AWS (S3, Lambda, CloudFront, EC2)",
                 "Adobe Photoshop",
                 "Adobe Illustrator"
-            ],
+            ]
         },
         {
             companyName: "McCann Health",
