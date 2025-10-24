@@ -13,6 +13,7 @@
     "embla-carousel-autoplay": "^7.0.1",
     "embla-carousel-class-names": "^7.0.1",
     "embla-carousel-react": "^7.0.1",
+    "lucide-react": "^0.547.0",
     "next": "^12.2.5",
     "react": "18.2.0",
     "react-dom": "18.2.0",
