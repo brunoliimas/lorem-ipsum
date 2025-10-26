@@ -28,7 +28,6 @@ const Home: NextPage = () => {
       </Head>
 
       <Masterhead />
-      <Findflix />
       <AboutUs />
       {/* <Skills /> */}
       <Works />
