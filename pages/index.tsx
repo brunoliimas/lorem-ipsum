@@ -7,6 +7,7 @@ import Works from '../components/Works'
 import TrustedBy from '../components/TrustedBy'
 import Footer from '../components/Footer'
 import ContactUs from '../components/ContactUs'
+import Findflix from './findflix'
 
 
 
@@ -27,6 +28,7 @@ const Home: NextPage = () => {
       </Head>
 
       <Masterhead />
+      <Findflix />
       <AboutUs />
       {/* <Skills /> */}
       <Works />
