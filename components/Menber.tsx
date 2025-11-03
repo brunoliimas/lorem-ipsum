@@ -13,7 +13,7 @@ interface Props {
 const Member: React.FC<Props> = ({ id, name, jobTitle, socialId, link }) => (
    <div className="flex flex-col items-center justify-center">
       <Image
-         src={`/assets/team/avatar-${id}.jpeg`}
+         src={`/assets/team/avatar-${id}.png`}
          alt={name}
          width={200}
          height={200}
@@ -23,7 +23,7 @@ const Member: React.FC<Props> = ({ id, name, jobTitle, socialId, link }) => (
       <p className="text-base text-gray-500">{jobTitle}</p>
       <p className="text-base text-blue-400">
          <Link href={link}>
-            <a target="_blank" rel="noopener noreferrer">{socialId}</a>
+            {socialId}
          </Link>
       </p>
    </div>

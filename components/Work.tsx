@@ -27,7 +27,7 @@ export const WorkLeft: React.FC<{
             transform: `translateY(${translateY}px)`
          }}>
          <div className="leading-10">
-         <p className="text-xl font-bold text-green-700">Projetos</p>
+            <p className="text-xl font-bold text-green-700">Projetos</p>
             {children}
          </div>
       </div>
@@ -58,13 +58,9 @@ export const WorkLink: React.FC<LinkProps> = ({
    href,
    children
 }: LinkProps) => (
-   <Link href={href}>
-      <a
-         target="_blank"
-         rel="noopener noreferrer"
-         className="underline underline-offset-8 decoration-1"
-      >
-         {children}
-      </a>
+   <Link href={href} className="underline underline-offset-8 decoration-1">
+
+      {children}
+
    </Link>
 )

@@ -30,7 +30,7 @@ const AboutUs: React.FC = () => {
                O dev
             </p> */}
             <div className="mt-10 grid grid-cols-1 gap-6 lg:gap-20">
-               <Member id="01" name="Bruno" jobTitle="Front End" socialId="@brunoliimas" link="https://github.com/brunoliimas" />
+               <Member id="00" name="Bruno" jobTitle="Front End" socialId="@brunoliimas" link="https://github.com/brunoliimas" />
             </div>
             <div className="mt-8">
                <Button href="/resume" name="Currículo" />
