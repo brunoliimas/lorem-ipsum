@@ -15,8 +15,8 @@ const Member: React.FC<Props> = ({ id, name, jobTitle, socialId, link }) => (
       <Image
          src={`/assets/team/avatar-${id}.png`}
          alt={name}
-         width={200}
-         height={200}
+         width={300}
+         height={300}
          className="rounded-md"
       />
       <p className="text-2xl xl:text-3xl font-bold">{name}</p>
