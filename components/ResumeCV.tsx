@@ -125,7 +125,7 @@ const ResumeCV: React.FC<ResumeCVProps> = ({ resumeData }) => {
                     </section>
                 </div>
                 <div className="flex items-center justify-center">
-                    <Button name="Baixar Currículo" href="/assets/brunolima.dev.br_resume.pdf" download="Currículo - Bruno Lima" />
+                    <Button name="Baixar Currículo" href="/assets/Curriculo_Bruno_Lima_ATS.pdf" download="Currículo - Bruno Lima" />
                 </div>
             </main>
             <Footer />

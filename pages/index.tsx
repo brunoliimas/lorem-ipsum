@@ -7,7 +7,6 @@ import Works from '../components/Works'
 import TrustedBy from '../components/TrustedBy'
 import Footer from '../components/Footer'
 import ContactUs from '../components/ContactUs'
-import Findflix from './findflix'
 
 
 
