@@ -25,6 +25,7 @@ const Home: NextPage = () => {
         <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
 
       </Head>
+      
 
       <Masterhead />
       <AboutUs />
