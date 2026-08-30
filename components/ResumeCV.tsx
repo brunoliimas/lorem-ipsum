@@ -1,3 +1,5 @@
+'use client'
+
 import Image from 'next/image'
 import Link from 'next/link'
 import { BsGithub, BsLinkedin, BsWhatsapp } from 'react-icons/bs'

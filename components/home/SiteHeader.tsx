@@ -1,15 +1,17 @@
+'use client'
+
 import { AnimatePresence } from 'framer-motion'
-import { useRouter } from 'next/router'
+import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import { CurvedMenuNav } from './curved-menu/CurvedMenuNav'
 
 export function SiteHeader() {
   const [isActive, setIsActive] = useState(false)
-  const router = useRouter()
+  const pathname = usePathname()
 
   useEffect(() => {
     setIsActive(false)
-  }, [router.asPath])
+  }, [pathname])
 
   useEffect(() => {
     document.body.style.overflow = isActive ? 'hidden' : ''
@@ -42,7 +44,7 @@ export function SiteHeader() {
         {isActive && (
           <CurvedMenuNav
             key="curved-menu"
-            activePath={router.asPath}
+            activePath={pathname ?? '/'}
             onClose={() => setIsActive(false)}
           />
         )}

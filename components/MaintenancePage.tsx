@@ -1,4 +1,3 @@
-import Head from 'next/head'
 import Image from 'next/image'
 import { Button, Marquee } from './ds'
 
@@ -13,17 +12,7 @@ const marqueeItems = [
 
 export default function MaintenancePage() {
   return (
-    <>
-      <Head>
-        <title>Site em manutenção | Bruno Lima</title>
-        <meta
-          name="description"
-          content="Estamos preparando algumas novidades. Voltaremos em breve."
-        />
-        <meta name="robots" content="noindex, nofollow" />
-      </Head>
-
-      <div className="flex min-h-screen flex-col bg-grey-1 text-grey-9">
+    <div className="flex min-h-screen flex-col bg-grey-1 text-grey-9">
         <header className="padding-global border-b border-grey-4">
           <div className="container-base flex items-center justify-between py-4">
             <Image src="/assets/logo.svg" width={32} height={32} alt="Bruno Lima" />
@@ -66,6 +55,5 @@ export default function MaintenancePage() {
           © {new Date().getFullYear()} Bruno Lima — Desenvolvedor de Software
         </footer>
       </div>
-    </>
   )
 }

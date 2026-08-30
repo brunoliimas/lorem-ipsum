@@ -1,6 +1,6 @@
 'use client'
 
-import { useRouter } from 'next/router'
+import { usePathname, useRouter } from 'next/navigation'
 import { useCallback, useEffect, useRef, useState } from 'react'
 import {
   MOSAIC_CELL_FADE_MS,
@@ -47,6 +47,7 @@ function shouldAnimateLink(anchor: HTMLAnchorElement, currentPath: string): stri
 
 export function PageTransition() {
   const router = useRouter()
+  const pathname = usePathname()
   const [phase, setPhase] = useState<Phase>('idle')
   const [cells, setCells] = useState<MosaicCell[]>([])
   const [coverActive, setCoverActive] = useState(false)
@@ -120,9 +121,7 @@ export function PageTransition() {
       startCover()
 
       schedule(() => {
-        void router.push(href).then(() => {
-          completeNavigation()
-        })
+        router.push(href)
 
         schedule(() => {
           if (navigatingRef.current && phaseRef.current === 'cover') {
@@ -143,6 +142,11 @@ export function PageTransition() {
   }, [clearTimers])
 
   useEffect(() => {
+    if (!navigatingRef.current || phaseRef.current !== 'cover') return
+    completeNavigation()
+  }, [pathname, completeNavigation])
+
+  useEffect(() => {
     const onClick = (event: MouseEvent) => {
       if (disabledRef.current || event.defaultPrevented || event.button !== 0) return
       if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return
@@ -150,7 +154,7 @@ export function PageTransition() {
       const anchor = (event.target as Element | null)?.closest('a')
       if (!anchor) return
 
-      const currentPath = normalizePath(router.asPath)
+      const currentPath = normalizePath(pathname ?? '/')
       const path = shouldAnimateLink(anchor, currentPath)
       if (!path) return
 
@@ -160,46 +164,7 @@ export function PageTransition() {
 
     document.addEventListener('click', onClick, true)
     return () => document.removeEventListener('click', onClick, true)
-  }, [navigateWithTransition, router.asPath])
-
-  useEffect(() => {
-    const onStart = (url: string) => {
-      if (disabledRef.current) return
-
-      const nextPath = normalizePath(url)
-      const currentPath = normalizePath(router.asPath)
-
-      if (nextPath === currentPath) return
-      if (navigatingRef.current || phaseRef.current !== 'idle') return
-
-      navigatingRef.current = true
-      startCover()
-    }
-
-    const onComplete = () => {
-      if (disabledRef.current) {
-        navigatingRef.current = false
-        return
-      }
-
-      completeNavigation()
-    }
-
-    const onError = () => {
-      clearTimers()
-      resetTransition()
-    }
-
-    router.events.on('routeChangeStart', onStart)
-    router.events.on('routeChangeComplete', onComplete)
-    router.events.on('routeChangeError', onError)
-
-    return () => {
-      router.events.off('routeChangeStart', onStart)
-      router.events.off('routeChangeComplete', onComplete)
-      router.events.off('routeChangeError', onError)
-    }
-  }, [clearTimers, completeNavigation, resetTransition, router, startCover])
+  }, [navigateWithTransition, pathname])
 
   if (phase === 'idle' || cells.length === 0) return null
 
