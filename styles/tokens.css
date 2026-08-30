@@ -1,11 +1,13 @@
 :root {
-  /* Accent — Aeye Style Guide */
+  /* Brand — Aeye */
   --color-accent: #0055ff;
+  --color-accent-lighter: #99bbff;
+  --color-accent-darker: #002aff;
 
-  /* Neutral scale — Aeye Style Guide */
+  /* Neutral scale */
   --color-grey-01: #ffffff;
   --color-grey-02: #f7f7f7;
-  --color-grey-03: #f5f5f5;
+  --color-grey-03: whitesmoke;
   --color-grey-04: #e0e0e0;
   --color-grey-05: #cccccc;
   --color-grey-06: #adadad;
@@ -13,12 +15,86 @@
   --color-grey-08: #474747;
   --color-grey-09: #1a1a1a;
 
-  /* Semantic (dark-first) */
-  --color-bg: #0a0a0b;
-  --color-surface: #141416;
-  --color-surface-elevated: #1a1a1a;
-  --color-border: #2a2a2e;
-  --color-text: var(--color-grey-01);
-  --color-text-muted: var(--color-grey-06);
-  --color-text-subtle: var(--color-grey-07);
+  /* Semantic — light-first (Aeye default) */
+  --color-bg: var(--color-grey-01);
+  --color-surface: var(--color-grey-02);
+  --color-surface-elevated: var(--color-grey-03);
+  --color-border: var(--color-grey-04);
+  --color-text: var(--color-grey-09);
+  --color-text-muted: var(--color-grey-07);
+  --color-text-subtle: var(--color-grey-08);
+
+  /* Typography */
+  --font-size-h1: 4.5rem;
+  --font-size-h2: 4rem;
+  --font-size-h3: 3.5rem;
+  --font-size-h4: 3rem;
+  --font-size-h5: 2rem;
+  --font-size-h6: 1.5rem;
+  --font-size-title-l: 2rem;
+  --font-size-title-m: 1.5rem;
+  --font-size-title-s: 1.25rem;
+  --font-size-body-l: 1.125rem;
+  --font-size-body-m: 1rem;
+  --font-size-body-s: 0.875rem;
+  --font-size-body-xs: 0.75rem;
+
+  --line-height-s: 1.1em;
+  --line-height-m: 1.25em;
+  --line-height-l: 1.3em;
+  --line-height-xl: 1.4em;
+
+  --letter-spacing-l: -0.06em;
+  --letter-spacing-m: -0.05em;
+  --letter-spacing-s: -0.04em;
+
+  /* Spacing — Aeye */
+  --spacing-small: 3rem;
+  --spacing-large: 5rem;
+  --spacing-medium: 4rem;
+  --spacing-tiny: 1.5rem;
+  --spacing-hugh: 10rem;
+  --spacing-none: 0rem;
+
+  --container-max: 80rem;
+  --padding-global: 8%;
+}
+
+@media screen and (max-width: 991px) {
+  :root {
+    --spacing-small: 2rem;
+    --spacing-large: 4rem;
+    --spacing-medium: 3rem;
+    --spacing-hugh: 8rem;
+    --font-size-h1: 4rem;
+    --font-size-h2: 3.5rem;
+    --font-size-h3: 3rem;
+    --font-size-h4: 2.5rem;
+    --font-size-h5: 1.75rem;
+    --padding-global: 5%;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  :root {
+    --spacing-small: 1.5rem;
+    --spacing-large: 3.5rem;
+    --spacing-medium: 2.5rem;
+    --spacing-hugh: 7rem;
+    --spacing-tiny: 1rem;
+    --font-size-h1: 3.25rem;
+    --font-size-h2: 3rem;
+    --font-size-h3: 2.75rem;
+    --font-size-h4: 1.75rem;
+    --font-size-h5: 1.5rem;
+    --font-size-h6: 1rem;
+    --padding-global: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  :root {
+    --spacing-hugh: 4rem;
+    --font-size-h1: 3.25rem;
+  }
 }

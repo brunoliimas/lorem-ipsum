@@ -25,8 +25,8 @@ const StyleGuide: NextPage = () => {
       <div className="min-h-screen bg-background py-20">
         <Container>
           <SectionLabel index={1} total={3} label="style guide" className="mb-6" />
-          <h1 className="text-h1 font-semibold tracking-tighter">Style Guide</h1>
-          <p className="mt-4 max-w-2xl text-body-l text-grey-6">
+          <h1 className="text-h1">Style Guide</h1>
+          <p className="mt-4 max-w-2xl text-body-l text-grey-8">
             Referência visual baseada no{' '}
             <a
               href="https://aeye-saas.webflow.io/utility-pages/style-guide"
@@ -61,7 +61,7 @@ const StyleGuide: NextPage = () => {
                 {greyScale.map((grey) => (
                   <div key={grey.name} className="text-center">
                     <div
-                      className="mx-auto h-12 w-12 rounded-lg border border-border"
+                      className="mx-auto h-12 w-12 border border-grey-4"
                       style={{ backgroundColor: grey.value }}
                     />
                     <p className="mt-2 text-body-xs text-grey-6">{grey.name}</p>
@@ -73,37 +73,39 @@ const StyleGuide: NextPage = () => {
           </section>
 
           {/* Typography */}
-          <section className="mt-16 border-t border-border pt-16">
+          <section className="mt-16 border-t border-grey-4 pt-16">
             <p className="mb-6 font-mono text-body-xs text-grey-7">// 002</p>
-            <h2 className="text-h3 font-semibold">Typography</h2>
+            <h2 className="text-h3">Typography</h2>
             <div className="mt-8 space-y-6">
-              <p className="text-h1 font-semibold">Heading 1</p>
-              <p className="text-h2 font-semibold">Heading 2</p>
-              <p className="text-h3 font-semibold">Heading 3</p>
-              <p className="text-h4 font-semibold">Heading 4</p>
-              <p className="text-h5 font-semibold">Heading 5</p>
-              <p className="text-h6 font-semibold">Heading 6</p>
+              <p className="text-h1">Heading 1</p>
+              <p className="text-h2">Heading 2</p>
+              <p className="text-h3">Heading 3</p>
+              <p className="text-h4">Heading 4</p>
+              <p className="text-h5">Heading 5</p>
+              <p className="text-h6">Heading 6</p>
               <p className="text-title-l">Title L</p>
               <p className="text-title-m">Title M</p>
               <p className="text-title-s">Title S</p>
-              <p className="text-body-l text-grey-6">Body L</p>
-              <p className="text-body-m text-grey-6">Body M</p>
-              <p className="text-body-s text-grey-6">Body S</p>
-              <p className="text-body-xs text-grey-6">Body XS</p>
+              <p className="text-body-l text-grey-8">Body L</p>
+              <p className="text-body-m text-grey-8">Body M</p>
+              <p className="text-body-s text-grey-8">Body S</p>
+              <p className="text-body-xs text-grey-8">Body XS</p>
               <p className="font-mono text-body-m text-accent">
                 Mono — // 001 [tag]
               </p>
+              <p className="font-pixel text-h4 heading-highlight">[ Pixel ]</p>
             </div>
           </section>
 
           {/* Buttons */}
-          <section className="mt-16 border-t border-border pt-16">
+          <section className="mt-16 border-t border-grey-4 pt-16">
             <p className="mb-6 font-mono text-body-xs text-grey-7">// 003</p>
-            <h2 className="text-h3 font-semibold">Buttons</h2>
+            <h2 className="text-h3">Buttons</h2>
             <div className="mt-8 flex flex-wrap gap-4">
               <Button variant="primary">Get Started</Button>
-              <Button variant="secondary">Watch Demo</Button>
-              <Button variant="ghost">Contact Us</Button>
+              <Button variant="nav">Watch Demo</Button>
+              <Button variant="line">Contact Us</Button>
+              <Button variant="ghost">Learn more</Button>
             </div>
           </section>
         </Container>

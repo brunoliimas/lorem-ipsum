@@ -1,3 +1,6 @@
+export { FaqSection } from './FaqSection'
+export { BlogSection } from './BlogSection'
+export { HowItWorksSection } from './HowItWorksSection'
 export { SiteHeader } from './SiteHeader'
 export { HeroSection } from './HeroSection'
 export { AboutSection } from './AboutSection'

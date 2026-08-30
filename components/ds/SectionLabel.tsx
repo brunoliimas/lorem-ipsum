@@ -17,14 +17,15 @@ export function SectionLabel({
   const paddedTotal = String(total).padStart(2, '0')
 
   return (
-    <div
-      className={`flex flex-wrap items-center gap-2 font-mono text-body-xs uppercase tracking-wide text-grey-6 ${className}`}
-    >
-      <span className="text-grey-7">[n.</span>
-      <span className="text-accent">{paddedIndex}</span>
-      <span className="text-grey-7">/ {paddedTotal}]</span>
-      <span className="text-grey-7">&gt;</span>
-      <span className="text-grey-1">{label}</span>
+    <div className={`eyebrow-section ${className}`}>
+      <div className="eyebrow-main">
+        <span className="eyebrow-text">
+          [n.{paddedIndex} / {paddedTotal}]
+        </span>
+        <span className="eyebrow-text total">&gt;</span>
+        <span className="eyebrow-text">{label}</span>
+      </div>
+      <span className="eyebrow-line" aria-hidden="true" />
     </div>
   )
 }

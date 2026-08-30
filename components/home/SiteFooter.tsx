@@ -4,11 +4,11 @@ import { Container } from '../ds'
 
 export function SiteFooter() {
   return (
-    <footer className="border-t border-border py-10">
+    <footer className="border-t border-grey-4 bg-grey-1 py-10">
       <Container className="flex flex-col items-center justify-between gap-6 md:flex-row">
         <Link href="/" className="flex items-center gap-3">
           <Image src="/assets/logo.svg" width={24} height={24} alt="Bruno Lima" />
-          <span className="text-body-s text-grey-6">Bruno Lima</span>
+          <span className="text-body-s text-grey-8">Bruno Lima</span>
         </Link>
 
         <p className="font-mono text-body-xs text-grey-7">

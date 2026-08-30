@@ -3,26 +3,41 @@ import React from 'react'
 interface MarqueeProps {
   items: string[]
   className?: string
+  speed?: number
 }
 
-export function Marquee({ items, className = '' }: MarqueeProps) {
-  const content = items.map((item) => (
-    <span
-      key={item}
-      className="mx-6 shrink-0 font-mono text-body-s uppercase tracking-wider text-grey-7"
-    >
-      // {item}
-    </span>
-  ))
+function MarqueeGroup({
+  items,
+  id,
+  hidden,
+}: {
+  items: string[]
+  id: string
+  hidden?: boolean
+}) {
+  return (
+    <div className="marquee__group" aria-hidden={hidden}>
+      {items.map((item, index) => (
+        <span key={`${id}-${index}`} className="marquee__item">
+          {item}
+        </span>
+      ))}
+    </div>
+  )
+}
+
+export function Marquee({ items, className = '', speed = 28 }: MarqueeProps) {
+  const loopItems = [...items, ...items]
 
   return (
     <div
-      className={`overflow-hidden border-y border-border bg-surface py-4 ${className}`}
+      className={`marquee ${className}`}
+      style={{ '--marquee-duration': `${speed}s` } as React.CSSProperties}
       aria-hidden="true"
     >
-      <div className="flex w-max animate-marquee">
-        {content}
-        {content}
+      <div className="marquee__track">
+        <MarqueeGroup items={loopItems} id="a" />
+        <MarqueeGroup items={loopItems} id="b" hidden />
       </div>
     </div>
   )

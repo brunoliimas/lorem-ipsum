@@ -2,8 +2,11 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import {
   AboutSection,
+  FaqSection,
+  BlogSection,
   ContactSection,
   ExperienceSection,
+  HowItWorksSection,
   HeroSection,
   ProjectsSection,
   SiteFooter,
@@ -40,8 +43,11 @@ const Home: NextPage = () => {
         <HeroSection />
         <AboutSection />
         <ExperienceSection />
+        <HowItWorksSection />
         <ProjectsSection />
         <StackSection />
+        <BlogSection />
+        <FaqSection />
         <ContactSection />
       </main>
       <SiteFooter />

@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import { Button, Container, SectionLabel } from '../ds'
+import { SectionTypingTitle } from './SectionTypingTitle'
 
 const projects = [
   {
@@ -27,51 +28,50 @@ const projects = [
 
 export function ProjectsSection() {
   return (
-    <section id="projects" className="border-t border-border py-24 md:py-32">
+    <section id="projects" className="border-t border-grey-4 bg-grey-1 py-section">
       <Container>
-        <SectionLabel index={3} total={6} label="projects" className="mb-8" />
+        <SectionLabel index={4} total={8} label="projects" className="mb-8" />
 
-        <h2 className="max-w-3xl text-h2 font-semibold tracking-tighter md:text-h1">
-          / Projetos selecionados.
-          <br />
-          Código que entrega valor. /
-        </h2>
+        <SectionTypingTitle
+          className="max-w-3xl text-h2"
+          lines={['Projetos selecionados.', 'Código que entrega valor.']}
+        />
 
-        <div className="mt-16 grid gap-8 lg:grid-cols-3">
+        <div className="mt-16 grid gap-0 lg:grid-cols-3">
           {projects.map((project) => (
             <article
               key={project.title}
-              className="group overflow-hidden rounded-2xl border border-border bg-surface transition-colors hover:border-accent/40"
+              className="group flex flex-col border border-grey-4 lg:border-r-0 lg:last:border-r"
             >
-              <div className="relative aspect-[4/5] overflow-hidden bg-surface-elevated">
+              <div className="relative min-h-[13rem] overflow-hidden bg-grey-2 p-6">
                 <Image
                   src={project.image}
                   alt={project.title}
-                  fill
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                  className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                  width={400}
+                  height={400}
+                  className="mx-auto block w-[90%] translate-y-[30%] object-cover grayscale transition-[filter,transform] duration-500 group-hover:scale-[1.02] group-hover:grayscale-0"
                 />
               </div>
-              <div className="p-6">
-                <p className="font-mono text-body-xs text-grey-7">
-                  {project.subtitle}
-                </p>
-                <h3 className="mt-2 text-title-m font-semibold text-grey-1">
-                  {project.title}
-                </h3>
-                <div className="mt-4 flex flex-wrap gap-2">
-                  {project.stack.map((tech) => (
-                    <span
-                      key={tech}
-                      className="rounded-full border border-border px-3 py-1 font-mono text-body-xs text-grey-6"
-                    >
-                      {tech}
-                    </span>
-                  ))}
+              <div className="flex flex-1 flex-col justify-between p-6">
+                <div>
+                  <div className="flex flex-wrap gap-2">
+                    {project.stack.map((tech) => (
+                      <span
+                        key={tech}
+                        className="bg-grey-3 px-1 py-0.5 font-mono text-body-xs font-medium uppercase text-grey-8"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                  <p className="mt-4 font-mono text-body-xs uppercase text-grey-8">
+                    {project.subtitle}
+                  </p>
+                  <h3 className="mt-2 text-title-m font-medium">{project.title}</h3>
                 </div>
-                <div className="mt-6">
-                  <Button href={project.href} external variant="ghost" size="sm">
-                    Ver projeto →
+                <div className="mt-6 border-t border-grey-9 pt-2">
+                  <Button href={project.href} external variant="line" size="sm">
+                    Ver projeto
                   </Button>
                 </div>
               </div>

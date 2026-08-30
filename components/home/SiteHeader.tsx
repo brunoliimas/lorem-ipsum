@@ -1,41 +1,52 @@
-import Image from 'next/image'
-import Link from 'next/link'
-import { Button } from '../ds'
-
-const navLinks = [
-  { label: 'Sobre', href: '#about' },
-  { label: 'Experiência', href: '#experience' },
-  { label: 'Projetos', href: '#projects' },
-  { label: 'Contato', href: '#contact' },
-]
+import { AnimatePresence } from 'framer-motion'
+import { useRouter } from 'next/router'
+import { useEffect, useState } from 'react'
+import { CurvedMenuNav } from './curved-menu/CurvedMenuNav'
 
 export function SiteHeader() {
+  const [isActive, setIsActive] = useState(false)
+  const router = useRouter()
+
+  useEffect(() => {
+    setIsActive(false)
+  }, [router.asPath])
+
+  useEffect(() => {
+    document.body.style.overflow = isActive ? 'hidden' : ''
+    return () => {
+      document.body.style.overflow = ''
+    }
+  }, [isActive])
+
+  const toggleMenu = () => setIsActive((current) => !current)
+
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-border/60 bg-background/80 backdrop-blur-md">
-      <div className="container mx-auto flex items-center justify-between px-6 py-4 md:px-10">
-        <Link href="/" className="flex items-center gap-3">
-          <Image src="/assets/logo.svg" width={28} height={28} alt="Bruno Lima" />
-          <span className="hidden font-mono text-body-xs text-grey-6 sm:inline">
-            v2.0-beta
-          </span>
-        </Link>
-
-        <nav className="hidden items-center gap-8 md:flex" aria-label="Principal">
-          {navLinks.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className="font-mono text-body-s uppercase tracking-wide text-grey-6 transition-colors hover:text-grey-1"
-            >
-              {link.label}
-            </a>
-          ))}
-        </nav>
-
-        <Button href="#contact" variant="primary" size="sm">
-          Contato
-        </Button>
+    <>
+      <div className="fixed inset-x-0 top-0 z-[1001] padding-global pointer-events-none">
+        <div className="container-base flex items-center justify-end py-6 pointer-events-auto">
+          <button
+            type="button"
+            onClick={toggleMenu}
+            aria-expanded={isActive}
+            aria-label={isActive ? 'Fechar menu' : 'Abrir menu'}
+            className="flex size-16 shrink-0 items-center justify-center rounded-full bg-accent transition-colors hover:bg-accent-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+          >
+            <span
+              className={`curved-menu-burger ${isActive ? 'is-active' : ''}`}
+            />
+          </button>
+        </div>
       </div>
-    </header>
+
+      <AnimatePresence>
+        {isActive && (
+          <CurvedMenuNav
+            key="curved-menu"
+            activePath={router.asPath}
+            onClose={() => setIsActive(false)}
+          />
+        )}
+      </AnimatePresence>
+    </>
   )
 }

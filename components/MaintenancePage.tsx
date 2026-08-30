@@ -23,38 +23,26 @@ export default function MaintenancePage() {
         <meta name="robots" content="noindex, nofollow" />
       </Head>
 
-      <div className="relative flex min-h-screen flex-col bg-background">
-        <div
-          className="pointer-events-none absolute inset-0 overflow-hidden"
-          aria-hidden="true"
-        >
-          <div className="absolute -left-1/4 top-0 h-[500px] w-[500px] rounded-full bg-accent/10 blur-[120px]" />
-          <div className="absolute -right-1/4 bottom-0 h-[400px] w-[400px] rounded-full bg-accent/5 blur-[100px]" />
-        </div>
-
-        <header className="relative z-10 flex items-center justify-between px-6 py-6 md:px-10">
-          <Image
-            src="/assets/logo.svg"
-            width={32}
-            height={32}
-            alt="Bruno Lima"
-            className="opacity-90"
-          />
-          <span className="rounded-full border border-border bg-surface px-3 py-1 font-mono text-body-xs text-grey-6">
-            v2.0-beta
-          </span>
+      <div className="flex min-h-screen flex-col bg-grey-1 text-grey-9">
+        <header className="padding-global border-b border-grey-4">
+          <div className="container-base flex items-center justify-between py-4">
+            <Image src="/assets/logo.svg" width={32} height={32} alt="Bruno Lima" />
+            <span className="bg-grey-3 px-2 py-0.5 font-mono text-body-xs uppercase text-grey-7">
+              v2.0-beta
+            </span>
+          </div>
         </header>
 
-        <main className="relative z-10 flex flex-1 flex-col items-center justify-center px-6 pb-16 text-center">
-          <p className="mb-6 font-mono text-body-s uppercase tracking-widest text-accent">
+        <main className="flex flex-1 flex-col items-center justify-center px-6 pb-16 text-center">
+          <p className="mb-6 font-mono text-body-s uppercase text-accent">
             // rebuilding
           </p>
 
-          <h1 className="max-w-2xl text-h2 font-semibold tracking-tighter text-grey-1 md:text-display-lg">
+          <h1 className="max-w-2xl text-h2 leading-height-s tracking-l">
             Site em manutenção
           </h1>
 
-          <p className="mt-6 max-w-md text-body-l text-grey-6">
+          <p className="mt-6 max-w-md text-body-l leading-height-xl text-grey-7">
             Estamos preparando algumas novidades. Voltaremos em breve.
           </p>
 
@@ -65,16 +53,16 @@ export default function MaintenancePage() {
             <Button
               href="https://www.linkedin.com/in/brunoliimas/"
               external
-              variant="secondary"
+              variant="line"
             >
               LinkedIn
             </Button>
           </div>
         </main>
 
-        <Marquee items={marqueeItems} className="relative z-10" />
+        <Marquee items={marqueeItems} />
 
-        <footer className="relative z-10 px-6 py-6 text-center font-mono text-body-xs text-grey-7 md:px-10">
+        <footer className="padding-global py-6 text-center font-mono text-body-xs text-grey-6">
           © {new Date().getFullYear()} Bruno Lima — Desenvolvedor de Software
         </footer>
       </div>

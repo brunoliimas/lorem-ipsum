@@ -3,7 +3,9 @@ import { SpeedInsights } from '@vercel/speed-insights/next'
 import type { AppProps } from 'next/app'
 import Script from 'next/script'
 import MaintenancePage from '../components/MaintenancePage'
-import { inter, jetbrainsMono } from '../lib/fonts'
+import { PageTransition } from '../components/PageTransition'
+import { ScrollProgressBar } from '../components/ScrollProgressBar'
+import { geistMono, geistPixel, geistSans } from '../lib/fonts'
 import { isMaintenanceMode } from '../lib/maintenance'
 import ScrollObserver from '../components/utils/scroll-observer'
 import SizeObserver from '../components/utils/size-observer'
@@ -24,7 +26,9 @@ function MyApp({ Component, pageProps }: AppProps) {
   )
 
   return (
-    <div className={`${inter.variable} ${jetbrainsMono.variable} font-sans`}>
+    <div
+      className={`${geistSans.variable} ${geistMono.variable} ${geistPixel.variable} font-sans`}
+    >
       <Script
         src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
         strategy="afterInteractive"
@@ -38,6 +42,8 @@ function MyApp({ Component, pageProps }: AppProps) {
         `}
       </Script>
       {content}
+      <ScrollProgressBar />
+      {!maintenance && <PageTransition />}
       {!maintenance && <SpeedInsights />}
     </div>
   )

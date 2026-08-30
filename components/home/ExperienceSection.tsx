@@ -1,4 +1,5 @@
 import { Container, SectionLabel } from '../ds'
+import { SectionTypingTitle } from './SectionTypingTitle'
 
 const metrics = [
   { value: '6+', label: 'Anos de experiência' },
@@ -30,48 +31,45 @@ const experiences = [
 
 export function ExperienceSection() {
   return (
-    <section id="experience" className="border-t border-border py-24 md:py-32">
+    <section id="experience" className="border-t border-grey-4 bg-grey-1 py-section">
       <Container>
-        <SectionLabel index={2} total={6} label="experience" className="mb-8" />
+        <SectionLabel index={2} total={8} label="experience" className="mb-8" />
 
-        <h2 className="max-w-3xl text-h2 font-semibold tracking-tighter md:text-h1">
-          / Experiência real.
-          <br />
-          Resultados mensuráveis. /
-        </h2>
+        <SectionTypingTitle
+          className="max-w-3xl text-h2"
+          lines={['Experiência real.', 'Resultados mensuráveis.']}
+        />
 
-        <div className="mt-16 grid grid-cols-2 gap-6 md:grid-cols-4">
-          {metrics.map((metric) => (
-            <div
-              key={metric.label}
-              className="rounded-2xl border border-border bg-surface p-6 text-center"
-            >
-              <p className="text-h2 font-semibold text-accent md:text-h1">
-                {metric.value}
-              </p>
-              <p className="mt-2 text-body-s text-grey-6">{metric.label}</p>
-            </div>
-          ))}
-        </div>
-
-        <div className="mt-16 space-y-4">
-          {experiences.map((exp) => (
-            <article
-              key={exp.company}
-              className="flex flex-col gap-2 rounded-2xl border border-border bg-surface p-6 transition-colors hover:border-accent/30 md:flex-row md:items-center md:justify-between"
-            >
-              <div>
-                <h3 className="text-title-m font-semibold text-grey-1">
-                  {exp.role}
-                </h3>
-                <p className="text-body-m text-accent">{exp.company}</p>
+        <div className="relative mt-16">
+          <div className="grid grid-cols-2 border border-grey-4 bg-grey-1 md:absolute md:-top-9 md:right-0 md:w-[35%] md:max-w-[28rem] md:grid-cols-2">
+            {metrics.map((metric) => (
+              <div
+                key={metric.label}
+                className="flex flex-col gap-4 border-b border-l border-grey-4 p-6"
+              >
+                <p className="text-title-l">{metric.value}</p>
+                <p className="text-body-m text-grey-8">{metric.label}</p>
               </div>
-              <div className="md:text-right">
-                <p className="font-mono text-body-s text-grey-6">{exp.period}</p>
-                <p className="mt-1 text-body-s text-grey-7">{exp.highlight}</p>
-              </div>
-            </article>
-          ))}
+            ))}
+          </div>
+
+          <div className="mt-16 space-y-0 md:mt-0 md:w-[60%]">
+            {experiences.map((exp) => (
+              <article
+                key={exp.company}
+                className="flex flex-col gap-2 border-b border-grey-4 py-6 md:flex-row md:items-center md:justify-between"
+              >
+                <div>
+                  <h3 className="text-title-m font-medium">{exp.role}</h3>
+                  <p className="text-body-m text-accent">{exp.company}</p>
+                </div>
+                <div className="md:text-right">
+                  <p className="font-mono text-body-s text-grey-6">{exp.period}</p>
+                  <p className="mt-1 text-body-s text-grey-8">{exp.highlight}</p>
+                </div>
+              </article>
+            ))}
+          </div>
         </div>
       </Container>
     </section>

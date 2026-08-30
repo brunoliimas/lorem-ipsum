@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import { Container, Marquee, SectionLabel } from '../ds'
+import { SectionTypingTitle } from './SectionTypingTitle'
 
 const tools = [
   { src: '/assets/logos/react.svg', alt: 'React' },
@@ -23,21 +24,20 @@ const marqueeItems = [
 
 export function StackSection() {
   return (
-    <section className="border-t border-border">
-      <Container className="py-24 md:py-32">
-        <SectionLabel index={4} total={6} label="stack" className="mb-8" />
+    <section className="border-t border-grey-4 bg-grey-1">
+      <Container className="py-section">
+        <SectionLabel index={5} total={8} label="stack" className="mb-8" />
 
-        <h2 className="max-w-3xl text-h2 font-semibold tracking-tighter md:text-h1">
-          / Ferramentas que uso
-          <br />
-          no dia a dia. /
-        </h2>
+        <SectionTypingTitle
+          className="max-w-3xl text-h2"
+          lines={['Ferramentas que uso', 'no dia a dia.']}
+        />
 
         <div className="mt-12 flex flex-wrap items-center justify-center gap-8 md:gap-12">
           {tools.map((tool) => (
             <div
               key={tool.alt}
-              className="flex h-14 w-14 items-center justify-center rounded-xl border border-border bg-surface transition-colors hover:border-accent/40"
+              className="flex h-14 w-14 items-center justify-center border border-grey-4 bg-grey-1 transition-colors hover:border-accent"
             >
               <Image src={tool.src} width={32} height={32} alt={tool.alt} />
             </div>

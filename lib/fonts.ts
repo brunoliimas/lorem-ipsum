@@ -1,13 +1,7 @@
-import { Inter, JetBrains_Mono } from 'next/font/google'
+import { GeistMono } from 'geist/font/mono'
+import { GeistPixelSquare } from 'geist/font/pixel'
+import { GeistSans } from 'geist/font/sans'
 
-export const inter = Inter({
-  subsets: ['latin'],
-  variable: '--font-inter',
-  display: 'swap',
-})
-
-export const jetbrainsMono = JetBrains_Mono({
-  subsets: ['latin'],
-  variable: '--font-mono',
-  display: 'swap',
-})
+export const geistSans = GeistSans
+export const geistMono = GeistMono
+export const geistPixel = GeistPixelSquare
