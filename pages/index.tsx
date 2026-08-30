@@ -1,39 +1,50 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import Masterhead from '../components/Masterhead'
-import AboutUs from '../components/AboutUs'
-// import Skills from '../components/Skilss'
-import Works from '../components/Works'
-import TrustedBy from '../components/TrustedBy'
-import Footer from '../components/Footer'
-import ContactUs from '../components/ContactUs'
-
-
-
+import {
+  AboutSection,
+  ContactSection,
+  ExperienceSection,
+  HeroSection,
+  ProjectsSection,
+  SiteFooter,
+  SiteHeader,
+  StackSection,
+} from '../components/home'
 
 const Home: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Bruno Lima - Desenvolvedor Front End JavaScript | ReactJS e Next.js</title>
-        <meta name="description" content="Sou um desenvolvedor Front End especializado em JavaScript, ReactJS e Next.js, com experiência na criação de interfaces de usuário responsivas e interativas. Confira meu portfolio para ver meus projetos recentes" />
+        <title>Bruno Lima — Desenvolvedor Full Stack | React, Next.js & TypeScript</title>
+        <meta
+          name="description"
+          content="Desenvolvedor Full Stack especializado em React, Next.js e TypeScript. Mais de 6 anos de experiência em interfaces performáticas, acessíveis e produtos digitais de impacto."
+        />
         <link rel="icon" href="/favicon.svg" />
-        <meta name="keywords" content="Front End, Desenvolvedor de Software, HTML, CSS, Javascript, ReactJS, NexJS, SASS, TailwindCSS, desenvolvimento web, UI/UX, desenvolvedor front end freelancer" />
+        <meta
+          name="keywords"
+          content="Desenvolvedor Full Stack, React, Next.js, TypeScript, Tailwind CSS, Front End, Portfólio, Freelancer"
+        />
         <meta name="robots" content="index, follow" />
         <meta name="language" content="Portuguese" />
-        <meta name="generator" content="N/A" />
-        <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
-
+        <meta property="og:title" content="Bruno Lima — Desenvolvedor Full Stack" />
+        <meta
+          property="og:description"
+          content="Portfólio de Bruno Lima — React, Next.js, TypeScript e produtos digitais de impacto."
+        />
+        <meta property="og:type" content="website" />
       </Head>
-      
 
-      <Masterhead />
-      <AboutUs />
-      {/* <Skills /> */}
-      <Works />
-      <TrustedBy />
-      <ContactUs />
-      <Footer />
+      <SiteHeader />
+      <main>
+        <HeroSection />
+        <AboutSection />
+        <ExperienceSection />
+        <ProjectsSection />
+        <StackSection />
+        <ContactSection />
+      </main>
+      <SiteFooter />
     </>
   )
 }
