@@ -5,6 +5,7 @@ import Script from 'next/script'
 import MaintenancePage from '../components/MaintenancePage'
 import { PageTransition } from '../components/PageTransition'
 import { ScrollProgressBar } from '../components/ScrollProgressBar'
+import { SiteLoader } from '../components/SiteLoader'
 import { geistMono, geistPixel, geistSans } from '../lib/fonts'
 import { isMaintenanceMode } from '../lib/maintenance'
 import ScrollObserver from '../components/utils/scroll-observer'
@@ -42,6 +43,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         `}
       </Script>
       {content}
+      {!maintenance && <SiteLoader />}
       <ScrollProgressBar />
       {!maintenance && <PageTransition />}
       {!maintenance && <SpeedInsights />}
