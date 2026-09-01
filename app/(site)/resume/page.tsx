@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
-import ResumeCV from '../../components/ResumeCV'
-import { resumeData } from '../../resumeData'
+import ResumeCV from '../../../components/ResumeCV'
+import { resumeData } from '../../../resumeData'
 
 export const metadata: Metadata = {
   title: 'Currículo — Bruno Lima | Desenvolvedor Full Stack',

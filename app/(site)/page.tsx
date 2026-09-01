@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { HomePage } from '../components/pages/HomePage'
+import { HomePage } from '../../components/pages/HomePage'
 
 export const metadata: Metadata = {
   title: 'Bruno Lima — Desenvolvedor Full Stack | React, Next.js & TypeScript',

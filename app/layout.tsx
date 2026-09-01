@@ -1,12 +1,6 @@
-import { SpeedInsights } from '@vercel/speed-insights/next'
 import type { Metadata, Viewport } from 'next'
 import Script from 'next/script'
-import MaintenancePage from '../components/MaintenancePage'
-import { PageTransition } from '../components/PageTransition'
-import { ScrollProgressBar } from '../components/ScrollProgressBar'
-import { SiteLoader } from '../components/SiteLoader'
 import { geistMono, geistPixel, geistSans } from '../lib/fonts'
-import { isMaintenanceMode } from '../lib/maintenance'
 import '../styles/globals.css'
 
 const GA_MEASUREMENT_ID = 'G-FT095J0S8C'
@@ -23,8 +17,6 @@ export const metadata: Metadata = {
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-  const maintenance = isMaintenanceMode()
-
   return (
     <html
       lang="pt-BR"
@@ -44,16 +36,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           `}
         </Script>
 
-        {maintenance ? <MaintenancePage /> : children}
-
-        {!maintenance && (
-          <>
-            <SiteLoader />
-            <ScrollProgressBar />
-            <PageTransition />
-            <SpeedInsights />
-          </>
-        )}
+        {children}
       </body>
     </html>
   )

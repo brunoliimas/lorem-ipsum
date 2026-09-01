@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Button, Container, Marquee, SectionLabel } from '../../components/ds'
+import { Button, Container, Marquee, SectionLabel } from '../../../components/ds'
 
 const greyScale = [
   { name: 'Grey 01', value: '#FFFFFF' },
