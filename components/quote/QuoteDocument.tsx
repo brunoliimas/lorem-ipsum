@@ -9,7 +9,6 @@ import {
   quoteData,
   quoteJobs,
   quoteWaves,
-  estimateScenarios,
   totalDevEstimate,
   totalEstimate,
   totalPublication,
@@ -133,7 +132,7 @@ export function QuoteDocument() {
           </section>
 
           <section className="border-t border-grey-4 py-section">
-            <QuoteSectionTitle label="rate card" title="Como eu cobro" />
+            <QuoteSectionTitle label="pricing" title="Tabela de valores" />
             <p className="mb-8 max-w-3xl text-body-m text-grey-8">
               Um Veeva CLM não é PDF nem export de imagens — é interface HTML, CSS e
               JavaScript dentro do CRM. A cobrança é por tela de desenvolvimento, porque o
@@ -388,29 +387,6 @@ export function QuoteDocument() {
                   </tr>
                 </tfoot>
               </table>
-            </div>
-
-            <div className="mt-8 break-inside-avoid">
-              <h3 className="font-mono text-body-xs uppercase text-grey-7">
-                Faixa se a mistura de níveis mudar
-              </h3>
-              <ul className="mt-4 divide-y divide-grey-4 border border-grey-4">
-                {estimateScenarios.map((scenario) => (
-                  <li
-                    key={scenario.id}
-                    className={`flex flex-col gap-1 px-6 py-4 sm:flex-row sm:items-center sm:justify-between ${
-                      'highlighted' in scenario && scenario.highlighted ? 'bg-grey-2' : ''
-                    }`}
-                  >
-                    <span className="text-body-m text-grey-8">
-                      {scenario.label} — {formatBRL(scenario.rate)} / tela
-                    </span>
-                    <span className="font-mono text-body-s text-grey-7">
-                      {formatBRL(scenario.development + totalPublication)}
-                    </span>
-                  </li>
-                ))}
-              </ul>
             </div>
 
             <div className="mt-8 break-inside-avoid">

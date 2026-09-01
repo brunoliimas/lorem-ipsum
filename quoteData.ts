@@ -67,34 +67,6 @@ export const totalPublication = quoteJobs.reduce((sum, job) => sum + jobPublicat
 export const totalDevEstimate = totalScreens * referenceRate
 export const totalEstimate = totalDevEstimate + totalPublication
 
-export const estimateScenarios = [
-  {
-    id: 'basico',
-    label: 'Teto mínimo (todas Básico)',
-    rate: CLM_LEVELS.basico.amount,
-    development: totalScreens * CLM_LEVELS.basico.amount,
-  },
-  {
-    id: 'simples',
-    label: 'Se prevalecer animação sem clique (Simples)',
-    rate: CLM_LEVELS.simples.amount,
-    development: totalScreens * CLM_LEVELS.simples.amount,
-  },
-  {
-    id: 'media',
-    label: 'Referência desta proposta (Média)',
-    rate: CLM_LEVELS.media.amount,
-    development: totalScreens * CLM_LEVELS.media.amount,
-    highlighted: true,
-  },
-  {
-    id: 'complexa',
-    label: 'Se prevalecer lógica em camadas (Complexa)',
-    rate: CLM_LEVELS.complexa.amount,
-    development: totalScreens * CLM_LEVELS.complexa.amount,
-  },
-] as const
-
 export const quoteData = {
   meta: {
     id: 'ORC-2026-001',
