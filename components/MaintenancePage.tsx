@@ -5,9 +5,11 @@ const marqueeItems = [
   '#react',
   '#nextjs',
   '#typescript',
+  '#nodejs',
   '#software',
   '#development',
   '#portfolio',
+  '#veeva',
 ]
 
 export default function MaintenancePage() {
