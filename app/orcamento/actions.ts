@@ -4,6 +4,7 @@ import { cookies } from 'next/headers'
 import { redirect } from 'next/navigation'
 import {
   QUOTE_COOKIE_NAME,
+  QUOTE_PATH,
   getQuoteCookieValue,
   isValidQuotePassword,
 } from '../../lib/quote-auth'
@@ -12,7 +13,7 @@ export async function unlockQuote(formData: FormData) {
   const password = String(formData.get('password') ?? '')
 
   if (!isValidQuotePassword(password)) {
-    redirect('/orcamento?erro=1')
+    redirect(`${QUOTE_PATH}?erro=1`)
   }
 
   const jar = await cookies()
@@ -20,9 +21,9 @@ export async function unlockQuote(formData: FormData) {
     httpOnly: true,
     secure: process.env.NODE_ENV === 'production',
     sameSite: 'lax',
-    path: '/orcamento',
+    path: QUOTE_PATH,
     maxAge: 60 * 60 * 24 * 7,
   })
 
-  redirect('/orcamento')
+  redirect(QUOTE_PATH)
 }
