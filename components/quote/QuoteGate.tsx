@@ -19,7 +19,7 @@ export function QuoteGate({ error }: { error?: boolean }) {
       <main className="flex flex-1 flex-col items-center justify-center px-6 py-16">
         <div className="w-full max-w-md border border-grey-4 bg-grey-1 p-8 md:p-10">
           <p className="font-mono text-body-xs uppercase text-accent">// quote</p>
-          <h1 className="mt-4 text-h3 leading-height-s tracking-l md:text-h3">
+          <h1 className="mt-4 text-h4 leading-height-s tracking-l md:text-h4">
             {quoteData.meta.project}
           </h1>
           <p className="mt-3 text-body-m text-grey-8">
