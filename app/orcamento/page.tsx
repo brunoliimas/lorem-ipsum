@@ -8,7 +8,8 @@ export const dynamic = 'force-dynamic'
 
 export const metadata: Metadata = {
   title: 'Proposta Veeva CLM — Swordfish Brasil',
-  description: 'Proposta comercial protegida.',
+  description:
+    'Desenvolvimento e implementação técnica de Veeva CLM. Proposta comercial protegida.',
   robots: 'noindex, nofollow',
 }
 

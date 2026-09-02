@@ -26,14 +26,14 @@ export const CLM_LEVELS = {
     amount: 350,
     criterion: 'Múltiplas camadas de interação e/ou lógica condicional.',
     example:
-      'Carrossel com pop-ups próprios, formulário com lógica, envio de Approved Email pelo CLM.',
+      'Carrossel com pop-ups próprios, múltiplas camadas de clique, vídeo em tela.',
   },
   muitoComplexa: {
     id: 'muitoComplexa',
     label: 'Muito complexa',
     amount: null,
     criterion: 'Funcionalidades avançadas de engenharia — valor caso a caso.',
-    example: 'Drag and drop, animações elaboradas, integração com CRM / Salesforce.',
+    example: 'Drag and drop, animações elaboradas, lógica avançada de navegação.',
   },
 } as const
 

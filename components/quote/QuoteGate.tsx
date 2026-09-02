@@ -1,5 +1,6 @@
 import { Button } from '../ds'
 import { unlockQuote } from '../../app/orcamento/actions'
+import { quoteData } from '../../quoteData'
 
 export function QuoteGate({ error }: { error?: boolean }) {
   return (
@@ -10,7 +11,7 @@ export function QuoteGate({ error }: { error?: boolean }) {
             Acesso restrito
           </span>
           <span className="bg-grey-3 px-2 py-0.5 font-mono text-body-xs uppercase text-grey-7">
-            ORC-2026-0014
+            {quoteData.meta.id}
           </span>
         </div>
       </header>
@@ -19,7 +20,7 @@ export function QuoteGate({ error }: { error?: boolean }) {
         <div className="w-full max-w-md border border-grey-4 bg-grey-1 p-8 md:p-10">
           <p className="font-mono text-body-xs uppercase text-accent">// quote</p>
           <h1 className="mt-4 text-h4 leading-height-s tracking-l md:text-h3">
-            Pipeline Veeva CLM
+            {quoteData.meta.project}
           </h1>
           <p className="mt-3 text-body-m text-grey-8">
             Swordfish Brasil — proposta protegida. Use a senha enviada junto com este

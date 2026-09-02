@@ -1,17 +1,17 @@
 import Image from 'next/image'
 import {
+  CLM_IMPLEMENTATION_TOTAL,
+  CLM_SETUP_AMOUNT,
   formatBRL,
   formatQuoteDate,
-  jobDevEstimate,
-  jobPublication,
-  jobsInWave,
-  publicationLabel,
+  investmentItems,
+  projectDevEstimate,
+  projectTotal,
   quoteData,
-  quoteJobs,
-  quoteWaves,
+  quoteProjects,
+  quoteWaveBudgets,
   totalDevEstimate,
   totalEstimate,
-  totalPublication,
   totalScreens,
 } from '../../quoteData'
 import { Button, Container } from '../ds'
@@ -22,7 +22,7 @@ function QuoteSectionTitle({ label, title }: { label: string; title: string }) {
   return (
     <div className="mb-8">
       <p className="font-mono text-body-xs uppercase text-grey-7">// {label}</p>
-      <h2 className="mt-3 text-h4 leading-height-s tracking-l md:text-h3">
+      <h2 className="mt-3 text-h5 leading-height-s tracking-l md:text-h3">
         <span className="heading-slash">/</span> {title}{' '}
         <span className="heading-slash">/</span>
       </h2>
@@ -30,12 +30,46 @@ function QuoteSectionTitle({ label, title }: { label: string; title: string }) {
   )
 }
 
-function MetaCell({ label, value }: { label: string; value: string }) {
+function MetaCell({
+  label,
+  hint,
+  value,
+}: {
+  label: string
+  hint?: string
+  value: string
+}) {
   return (
     <div className="bg-grey-1 p-4 md:p-5">
       <p className="font-mono text-body-xs uppercase text-grey-7">{label}</p>
+      {hint ? (
+        <p className="mt-1 font-mono text-body-xs uppercase text-grey-7">{hint}</p>
+      ) : null}
       <p className="mt-2 text-body-m text-grey-9">{value}</p>
     </div>
+  )
+}
+
+function BulletList({
+  items,
+  accent = false,
+}: {
+  items: string[]
+  accent?: boolean
+}) {
+  return (
+    <ul className="space-y-3">
+      {items.map((item) => (
+        <li
+          key={item}
+          className={`relative pl-4 text-body-m text-grey-8 before:absolute before:left-0 before:top-[0.55em] before:size-1.5 ${
+            accent ? 'before:bg-accent' : 'before:bg-grey-5'
+          }`}
+        >
+          {item}
+        </li>
+      ))}
+    </ul>
   )
 }
 
@@ -44,14 +78,26 @@ export function QuoteDocument() {
     meta,
     intro,
     scope,
+    layers,
     analysisNotes,
     notBillable,
+    waveNote,
+    waveTotalsNote,
+    clmSetup,
+    clmScope,
+    clmScopeNote,
     deliverables,
     excluded,
+    scopeChangeNote,
+    slas,
+    revisionsIncluded,
+    revisionsExcluded,
+    payment,
     terms,
     nextSteps,
-    extras,
     rateCard,
+    clmComplexityLevels,
+    clmPricingNotes,
     contact,
   } = quoteData
 
@@ -90,7 +136,8 @@ export function QuoteDocument() {
             <h1 className="mt-4 max-w-3xl text-h3 leading-height-s tracking-l md:text-h2">
               {meta.project}
             </h1>
-            <p className="mt-4 text-title-m text-grey-5">
+            <p className="mt-4 text-title-m text-grey-5">{meta.subtitle}</p>
+            <p className="mt-3 text-title-s text-grey-6">
               Preparado para <span className="text-grey-1">{meta.client}</span>
               {meta.contactName ? ` · ${meta.contactName}` : null}
             </p>
@@ -103,7 +150,7 @@ export function QuoteDocument() {
         <Container className="py-section">
           <div className="grid gap-px border border-grey-4 bg-grey-4 sm:grid-cols-2 lg:grid-cols-4">
             <MetaCell label="Cliente" value={meta.client} />
-            <MetaCell label="Materiais" value={`${quoteJobs.length} CLMs`} />
+            <MetaCell label="Materiais" value={`${quoteProjects.length} Visual Aids`} />
             <MetaCell label="Telas declaradas" value={String(totalScreens)} />
             <MetaCell label="Emissão" value={meta.issuedLabel} />
           </div>
@@ -129,14 +176,25 @@ export function QuoteDocument() {
                 </li>
               ))}
             </ul>
+
+            <div className="mt-8 grid gap-3 md:grid-cols-2">
+              {layers.map((layer) => (
+                <article key={layer.title} className="border border-grey-4 bg-grey-1 p-5">
+                  <p className="font-mono text-body-xs uppercase text-accent">{layer.title}</p>
+                  <p className="mt-3 text-body-m text-grey-8">{layer.detail}</p>
+                </article>
+              ))}
+            </div>
           </section>
 
           <section className="border-t border-grey-4 py-section">
             <QuoteSectionTitle label="pricing" title="Tabela de valores" />
             <p className="mb-8 max-w-3xl text-body-m text-grey-8">
-              Um Veeva CLM não é PDF nem export de imagens — é interface HTML, CSS e
-              JavaScript dentro do CRM. A cobrança é por tela de desenvolvimento, porque o
-              esforço muda com a interação, não com o volume de texto.
+              A classificação por tela contempla exclusivamente o desenvolvimento do
+              Visual Aid. A classificação da implementação CLM é independente: um
+              material pode ser nível Média no desenvolvimento e CLM Complexo na
+              implementação, ou o inverso. O setup de arquitetura é um valor único do
+              projeto.
             </p>
 
             <div className="overflow-x-auto border border-grey-4">
@@ -176,128 +234,201 @@ export function QuoteDocument() {
             </div>
 
             <p className="mt-4 font-mono text-body-xs text-grey-7">
-              Referência desta proposta: {rateCard.referenceLevel.label} (
+              Referência desta proposta para o desenvolvimento dos VAs:{' '}
+              {rateCard.referenceLevel.label} (
               {formatBRL(rateCard.referenceLevel.amount ?? 0)} / tela). Em dúvida entre
               dois níveis, classifica-se pelo mais alto.
             </p>
 
             <h3 className="mt-10 font-mono text-body-xs uppercase text-grey-7">
-              Publicação Veeva (uma vez por material)
+              Complexidade da Implementação CLM
             </h3>
-            <ul className="mt-4 divide-y divide-grey-4 border border-grey-4">
-              {rateCard.publication.map((band) => (
-                <li
-                  key={band.range}
-                  className="flex flex-col gap-1 px-6 py-4 sm:flex-row sm:items-center sm:justify-between"
-                >
-                  <span className="text-body-m text-grey-8">
-                    {band.range} — {band.label}
-                  </span>
-                  <span className="font-mono text-body-s uppercase text-grey-7">
-                    {formatBRL(band.amount)}
-                  </span>
-                </li>
+            <div className="mt-4 mb-8 max-w-3xl space-y-4">
+              {clmPricingNotes.map((paragraph) => (
+                <p key={paragraph} className="text-body-m text-grey-8">
+                  {paragraph}
+                </p>
               ))}
-            </ul>
-            <p className="mt-4 max-w-3xl text-body-s text-grey-7">
-              Cobre empacotamento Vault, metadados e keyed messages, teste no iRep/Engage
-              e validação de sincronização em campo. O valor sobe com o volume porque
-              cresce a superfície de teste — não porque a publicação fique mais complexa
-              por tela. A tabela não define a faixa de 21 a 30 telas: nesses casos
-              aplica-se a faixa Complexa (R$ 650).
-            </p>
-          </section>
+            </div>
 
-          <section className="border-t border-grey-4 py-section">
-            <QuoteSectionTitle label="pipeline" title="Jobs da planilha" />
             <div className="overflow-x-auto border border-grey-4">
               <table className="w-full min-w-xl border-collapse text-left">
                 <thead>
                   <tr className="border-b border-grey-4 bg-grey-2">
                     <th className="px-4 py-4 font-mono text-body-xs uppercase text-grey-7">
-                      Job
+                      Nível
                     </th>
                     <th className="px-4 py-4 font-mono text-body-xs uppercase text-grey-7">
-                      Telas
-                    </th>
-                    <th className="px-4 py-4 font-mono text-body-xs uppercase text-grey-7">
-                      Janela
-                    </th>
-                    <th className="px-4 py-4 font-mono text-body-xs uppercase text-grey-7">
-                      Publicação
-                    </th>
-                    <th className="px-4 py-4 text-right font-mono text-body-xs uppercase text-grey-7">
-                      Dev. ref.
+                      Critério
                     </th>
                   </tr>
                 </thead>
                 <tbody>
-                  {quoteJobs.map((job) => {
-                    const wave = quoteWaves.find((item) => item.id === job.wave)
-                    return (
-                      <tr key={job.id} className="border-b border-grey-4">
-                        <td className="px-4 py-4 font-mono text-body-s">{job.id}</td>
-                        <td className="px-4 py-4 text-body-m">{job.screens}</td>
-                        <td className="px-4 py-4 text-body-s text-grey-8">
-                          {wave?.period}
-                        </td>
-                        <td className="px-4 py-4 text-body-s text-grey-8">
-                          {publicationLabel(job.screens)} · {formatBRL(jobPublication(job))}
-                        </td>
-                        <td className="whitespace-nowrap px-4 py-4 text-right font-mono text-body-s">
-                          {formatBRL(jobDevEstimate(job))}
-                        </td>
-                      </tr>
-                    )
-                  })}
+                  {clmComplexityLevels.map((level) => (
+                    <tr key={level.label} className="border-b border-grey-4 last:border-b-0">
+                      <td className="whitespace-nowrap px-4 py-4 text-body-m text-grey-9">
+                        {level.label}
+                      </td>
+                      <td className="px-4 py-4 text-body-s text-grey-8">{level.criterion}</td>
+                    </tr>
+                  ))}
                 </tbody>
-                <tfoot>
-                  <tr className="bg-grey-9 text-grey-1">
-                    <th className="px-4 py-4 text-left font-mono text-body-xs uppercase">
-                      Total
-                    </th>
-                    <td className="px-4 py-4 font-mono text-body-s">{totalScreens}</td>
-                    <td className="px-4 py-4" />
-                    <td className="px-4 py-4 font-mono text-body-s">
-                      {formatBRL(totalPublication)}
-                    </td>
-                    <td className="px-4 py-4 text-right font-mono text-body-s">
-                      {formatBRL(totalDevEstimate)}
-                    </td>
-                  </tr>
-                </tfoot>
               </table>
             </div>
+            <p className="mt-4 font-mono text-body-xs text-grey-7">
+              Os níveis justificam a classificação de cada Visual Aid. O valor é
+              individual, conforme o esforço daquele material — não há tarifa fixa por
+              nível. A definição final depende do Figma aprovado.
+            </p>
           </section>
 
           <section className="border-t border-grey-4 py-section">
-            <QuoteSectionTitle label="waves" title="Capacidade por onda" />
-            <div className="border border-grey-4">
-              {quoteWaves.map((wave, index) => {
-                const jobs = jobsInWave(wave.id)
-                const publication = jobs.reduce((sum, job) => sum + jobPublication(job), 0)
-                const development = wave.screens * rateCard.referenceLevel.amount
+            <QuoteSectionTitle label="waves" title="Ondas de entrega" />
+            <p className="mb-8 max-w-3xl text-body-m text-grey-8">{waveNote}</p>
+
+            <div className="mb-10 grid gap-px border border-grey-4 bg-grey-4 sm:grid-cols-2 lg:grid-cols-4">
+              {quoteWaveBudgets.map((wave, index) => (
+                <div key={wave.id} className="bg-grey-1 p-4 md:p-5">
+                  <p className="font-mono text-body-xs uppercase text-accent">
+                    {String(index + 1).padStart(2, '0')} · {wave.label}
+                  </p>
+                  <p className="mt-2 text-body-m text-grey-9">{wave.period}</p>
+                  <p className="mt-2 font-mono text-body-xs uppercase text-grey-7">
+                    {wave.projects.length} materiais · {wave.screens} telas
+                  </p>
+                  <p className="mt-1 font-mono text-body-xs uppercase text-grey-7">
+                    VA + implementação
+                  </p>
+                  <p className="mt-1 font-mono text-body-s text-grey-9">
+                    {formatBRL(wave.total)}
+                  </p>
+                </div>
+              ))}
+            </div>
+            <p className="mb-10 mt-4 max-w-3xl font-mono text-body-xs text-grey-7">
+              {waveTotalsNote}
+            </p>
+
+            <div className="space-y-10">
+              {(['Setembro', 'Outubro'] as const).map((month) => {
+                const waves = quoteWaveBudgets.filter((wave) => wave.month === month)
+                const monthIndex = month === 'Setembro' ? 1 : 2
+
                 return (
-                  <article
-                    key={wave.id}
-                    className={`break-inside-avoid p-6 md:p-8 ${index > 0 ? 'border-t border-grey-4' : ''}`}
-                  >
-                    <div className="flex flex-col gap-2 md:flex-row md:items-baseline md:justify-between">
-                      <h3 className="text-title-m font-medium">
-                        {wave.label} — {wave.period}
-                      </h3>
-                      <p className="font-mono text-body-s uppercase text-grey-7">
-                        {wave.screens} telas
-                      </p>
+                  <div key={month}>
+                    <div className="eyebrow-section mb-4">
+                      <div className="eyebrow-main">
+                        <span className="eyebrow-text">
+                          [n.{String(monthIndex).padStart(2, '0')} / 02]
+                        </span>
+                        <span className="eyebrow-text total">&gt;</span>
+                        <span className="eyebrow-text">{month} / 2026</span>
+                      </div>
+                      <span className="eyebrow-line" aria-hidden="true" />
                     </div>
-                    <p className="mt-3 text-body-m text-grey-8">
-                      {jobs.map((job) => `${job.id} (${job.screens})`).join(' · ')}
-                    </p>
-                    <p className="mt-4 font-mono text-body-s text-grey-7">
-                      Dev. {formatBRL(development)} + publicação {formatBRL(publication)} ={' '}
-                      <span className="text-grey-9">{formatBRL(development + publication)}</span>
-                    </p>
-                  </article>
+
+                    <div className="space-y-8">
+                      {waves.map((wave) => {
+                        const index = quoteWaveBudgets.findIndex((item) => item.id === wave.id)
+
+                        return (
+                          <article
+                            key={wave.id}
+                            className="break-inside-avoid border border-grey-4 border-l-2 border-l-accent"
+                          >
+                            <div className="flex flex-col gap-4 border-b border-grey-4 bg-grey-2 px-6 py-5 md:flex-row md:items-center md:justify-between">
+                              <div className="flex items-center gap-4">
+                                <span className="font-mono text-h5 leading-none text-accent">
+                                  {String(index + 1).padStart(2, '0')}
+                                </span>
+                                <div>
+                                  <h3 className="text-title-m font-medium">{wave.label}</h3>
+                                  <p className="mt-1 font-mono text-body-xs uppercase text-grey-7">
+                                    {wave.period}
+                                  </p>
+                                </div>
+                              </div>
+                              <p className="font-mono text-body-s uppercase text-grey-7">
+                                {wave.projects.length} materiais · {wave.screens} telas
+                              </p>
+                            </div>
+
+                  <div className="overflow-x-auto">
+                    <table className="w-full min-w-4xl border-collapse text-left">
+                      <thead>
+                        <tr className="border-b border-grey-4">
+                          <th className="px-4 py-3 font-mono text-body-xs uppercase text-grey-7">
+                            Material
+                          </th>
+                          <th className="px-4 py-3 font-mono text-body-xs uppercase text-grey-7">
+                            Telas
+                          </th>
+                          <th className="px-4 py-3 font-mono text-body-xs uppercase text-grey-7">
+                            Complexidade VA
+                          </th>
+                          <th className="px-4 py-3 font-mono text-body-xs uppercase text-grey-7">
+                            Complexidade CLM
+                          </th>
+                          <th className="px-4 py-3 text-right font-mono text-body-xs uppercase text-grey-7">
+                            Desenvolvimento VA
+                          </th>
+                          <th className="px-4 py-3 text-right font-mono text-body-xs uppercase text-grey-7">
+                            Implementação CLM
+                          </th>
+                          <th className="px-4 py-3 text-right font-mono text-body-xs uppercase text-grey-7">
+                            Total
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {wave.projects.map((project) => (
+                          <tr key={project.id} className="border-b border-grey-4">
+                            <td className="px-4 py-4 font-mono text-body-s">{project.id}</td>
+                            <td className="px-4 py-4 text-body-m">{project.screens}</td>
+                            <td className="px-4 py-4 text-body-s text-grey-8">
+                              {project.complexity}
+                            </td>
+                            <td className="px-4 py-4 text-body-s text-grey-8">
+                              {project.clmComplexity}
+                            </td>
+                            <td className="whitespace-nowrap px-4 py-4 text-right font-mono text-body-s">
+                              {formatBRL(projectDevEstimate(project))}
+                            </td>
+                            <td className="whitespace-nowrap px-4 py-4 text-right font-mono text-body-s">
+                              {formatBRL(project.clmImplementation)}
+                            </td>
+                            <td className="whitespace-nowrap px-4 py-4 text-right font-mono text-body-s">
+                              {formatBRL(projectTotal(project))}
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                      <tfoot>
+                        <tr className="bg-grey-9 text-grey-1">
+                          <th className="px-4 py-4 text-left font-mono text-body-xs uppercase">
+                            Subtotal da janela
+                          </th>
+                          <td className="px-4 py-4 font-mono text-body-s">{wave.screens}</td>
+                          <td className="px-4 py-4 font-mono text-body-s">—</td>
+                          <td className="px-4 py-4 font-mono text-body-s">—</td>
+                          <td className="px-4 py-4 text-right font-mono text-body-s">
+                            {formatBRL(wave.development)}
+                          </td>
+                          <td className="px-4 py-4 text-right font-mono text-body-s">
+                            {formatBRL(wave.clmImplementation)}
+                          </td>
+                          <td className="px-4 py-4 text-right font-mono text-body-s">
+                            {formatBRL(wave.total)}
+                          </td>
+                        </tr>
+                      </tfoot>
+                    </table>
+                  </div>
+                </article>
+                        )
+                      })}
+                    </div>
+                  </div>
                 )
               })}
             </div>
@@ -305,8 +436,37 @@ export function QuoteDocument() {
 
           <section className="border-t border-grey-4 py-section">
             <QuoteSectionTitle label="analysis" title="Leitura do material" />
-            <ul className="space-y-4">
-              {analysisNotes.map((item) => (
+            <BulletList items={analysisNotes} accent />
+
+            <h3 className="mt-10 font-mono text-body-xs uppercase text-grey-7">
+              O que não conta como tela separada
+            </h3>
+            <div className="mt-4">
+              <BulletList items={notBillable} />
+            </div>
+          </section>
+
+          <section className="border-t border-grey-4 py-section">
+            <QuoteSectionTitle label="setup" title="Setup e Arquitetura Técnica Veeva CLM" />
+            <p className="mb-8 max-w-3xl text-body-m text-grey-8">{clmSetup.description}</p>
+            <article className="flex flex-col gap-4 border border-grey-4 bg-grey-1 p-6 md:flex-row md:items-center md:justify-between md:p-8">
+              <div>
+                <p className="font-mono text-body-xs uppercase text-accent">{clmSetup.title}</p>
+                <p className="mt-3 max-w-2xl text-body-m text-grey-8">{clmSetup.note}</p>
+              </div>
+              <p className="whitespace-nowrap font-mono text-title-m">{formatBRL(clmSetup.amount)}</p>
+            </article>
+          </section>
+
+          <section className="border-t border-grey-4 py-section">
+            <QuoteSectionTitle label="clm" title="Escopo da Implementação Técnica CLM" />
+            <p className="mb-8 max-w-3xl text-body-m text-grey-8">
+              É o que transforma cada Visual Aid em um material Veeva CLM funcional.
+              O valor é definido por material, segundo o esforço técnico — não por
+              onda e não pela quantidade de telas.
+            </p>
+            <ul className="space-y-4 border border-grey-4 p-6 md:p-8">
+              {clmScope.map((item) => (
                 <li
                   key={item}
                   className="relative pl-4 text-body-m text-grey-8 before:absolute before:left-0 before:top-[0.55em] before:size-1.5 before:bg-accent"
@@ -315,24 +475,29 @@ export function QuoteDocument() {
                 </li>
               ))}
             </ul>
-
-            <h3 className="mt-10 font-mono text-body-xs uppercase text-grey-7">
-              O que não conta como tela separada
-            </h3>
-            <ul className="mt-4 space-y-3">
-              {notBillable.map((item) => (
-                <li
-                  key={item}
-                  className="relative pl-4 text-body-m text-grey-8 before:absolute before:left-0 before:top-[0.55em] before:size-1.5 before:bg-grey-5"
-                >
-                  {item}
-                </li>
-              ))}
-            </ul>
+            <p className="mt-6 max-w-3xl text-body-s text-grey-7">{clmScopeNote}</p>
           </section>
 
           <section className="border-t border-grey-4 py-section">
             <QuoteSectionTitle label="investment" title="Orçamento" />
+
+            <div className="mb-8 grid gap-px border border-grey-4 bg-grey-4 sm:grid-cols-2 lg:grid-cols-4">
+              <MetaCell
+                label="Desenvolvimento dos VAs"
+                hint="18 materiais · 343 telas"
+                value={formatBRL(totalDevEstimate)}
+              />
+              <MetaCell
+                label="Setup + Arquitetura Técnica CLM"
+                value={formatBRL(CLM_SETUP_AMOUNT)}
+              />
+              <MetaCell
+                label="Implementação Técnica CLM"
+                hint="18 materiais"
+                value={formatBRL(CLM_IMPLEMENTATION_TOTAL)}
+              />
+              <MetaCell label="Total do projeto" value={formatBRL(totalEstimate)} />
+            </div>
 
             <div className="overflow-x-auto border border-grey-4">
               <table className="w-full min-w-xl border-collapse text-left">
@@ -347,39 +512,23 @@ export function QuoteDocument() {
                   </tr>
                 </thead>
                 <tbody>
-                  <tr className="border-b border-grey-4">
-                    <td className="px-6 py-5">
-                      <p className="text-body-m text-grey-9">
-                        Desenvolvimento estimado ({totalScreens} telas ×{' '}
-                        {rateCard.referenceLevel.label})
-                      </p>
-                      <p className="mt-1 text-body-s text-grey-7">
-                        Teto sobre a contagem da planilha, sujeito a reclassificação no
-                        PDF de cada job.
-                      </p>
-                    </td>
-                    <td className="whitespace-nowrap px-6 py-5 text-right font-mono text-body-m">
-                      {formatBRL(totalDevEstimate)}
-                    </td>
-                  </tr>
-                  <tr className="border-b border-grey-4">
-                    <td className="px-6 py-5">
-                      <p className="text-body-m text-grey-9">
-                        Publicação Veeva ({quoteJobs.length} materiais)
-                      </p>
-                      <p className="mt-1 text-body-s text-grey-7">
-                        Faixa por volume declarado de cada CLM.
-                      </p>
-                    </td>
-                    <td className="whitespace-nowrap px-6 py-5 text-right font-mono text-body-m">
-                      {formatBRL(totalPublication)}
-                    </td>
-                  </tr>
+                  {investmentItems.map((item) => (
+                    <tr key={item.name} className="border-b border-grey-4">
+                      <td className="px-6 py-5">
+                        <p className="text-body-m text-grey-9">{item.name}</p>
+                        <p className="mt-1 text-body-s text-grey-7">{item.description}</p>
+                      </td>
+                      <td className="whitespace-nowrap px-6 py-5 text-right font-mono text-body-m">
+                        {formatBRL(item.amount)}
+                      </td>
+                    </tr>
+                  ))}
                 </tbody>
                 <tfoot>
                   <tr className="bg-grey-9 text-grey-1">
                     <th className="px-6 py-5 text-left font-mono text-body-s uppercase">
-                      Total estimado
+                      Total do projeto · {quoteProjects.length} materiais · {totalScreens}{' '}
+                      telas
                     </th>
                     <td className="px-6 py-5 text-right font-mono text-title-m">
                       {formatBRL(totalEstimate)}
@@ -387,25 +536,6 @@ export function QuoteDocument() {
                   </tr>
                 </tfoot>
               </table>
-            </div>
-
-            <div className="mt-8 break-inside-avoid">
-              <h3 className="font-mono text-body-xs uppercase text-grey-7">
-                Itens opcionais
-              </h3>
-              <ul className="mt-4 divide-y divide-grey-4 border border-grey-4">
-                {extras.map((extra) => (
-                  <li
-                    key={extra.name}
-                    className="flex flex-col gap-1 px-6 py-4 sm:flex-row sm:items-center sm:justify-between"
-                  >
-                    <span className="text-body-m text-grey-8">{extra.name}</span>
-                    <span className="font-mono text-body-s uppercase text-grey-7">
-                      {extra.amount}
-                    </span>
-                  </li>
-                ))}
-              </ul>
             </div>
           </section>
 
@@ -426,30 +556,45 @@ export function QuoteDocument() {
           <section className="grid gap-12 border-t border-grey-4 py-section lg:grid-cols-2 lg:gap-0 lg:divide-x lg:divide-grey-4">
             <div className="lg:pr-12">
               <QuoteSectionTitle label="out of scope" title="Fora do escopo" />
-              <ul className="space-y-3">
-                {excluded.map((item) => (
-                  <li
-                    key={item}
-                    className="relative pl-4 text-body-m text-grey-8 before:absolute before:left-0 before:top-[0.55em] before:size-1.5 before:bg-grey-5"
-                  >
-                    {item}
-                  </li>
-                ))}
-              </ul>
+              <BulletList items={excluded} />
+              <p className="mt-6 text-body-m text-grey-8">{scopeChangeNote}</p>
             </div>
             <div className="lg:pl-12">
               <QuoteSectionTitle label="terms" title="Premissas" />
-              <ul className="space-y-3">
-                {terms.map((item) => (
-                  <li
-                    key={item}
-                    className="relative pl-4 text-body-m text-grey-8 before:absolute before:left-0 before:top-[0.55em] before:size-1.5 before:bg-accent"
-                  >
-                    {item}
-                  </li>
-                ))}
-              </ul>
+              <BulletList items={terms} accent />
             </div>
+          </section>
+
+          <section className="grid gap-12 border-t border-grey-4 py-section lg:grid-cols-2 lg:gap-0 lg:divide-x lg:divide-grey-4">
+            <div className="lg:pr-12">
+              <QuoteSectionTitle label="sla" title="SLAs" />
+              <BulletList items={slas} accent />
+            </div>
+            <div className="lg:pl-12">
+              <QuoteSectionTitle label="revisions" title="QA e homologação" />
+              <h3 className="mb-4 font-mono text-body-xs uppercase text-grey-7">
+                Incluído
+              </h3>
+              <BulletList items={revisionsIncluded} accent />
+              <h3 className="mb-4 mt-8 font-mono text-body-xs uppercase text-grey-7">
+                Não incluído sem novo orçamento
+              </h3>
+              <BulletList items={revisionsExcluded} />
+            </div>
+          </section>
+
+          <section className="break-inside-avoid border-t border-grey-4 py-section">
+            <QuoteSectionTitle label="payment" title="Condições de pagamento" />
+            <ul className="space-y-4 border border-grey-4 p-6 md:p-8">
+              {payment.map((item) => (
+                <li
+                  key={item}
+                  className="relative pl-4 text-body-m text-grey-8 before:absolute before:left-0 before:top-[0.55em] before:size-1.5 before:bg-accent"
+                >
+                  {item}
+                </li>
+              ))}
+            </ul>
           </section>
 
           <section className="break-inside-avoid border-t border-grey-4 py-section">
@@ -520,7 +665,7 @@ export function QuoteDocument() {
                 className="border border-grey-4 p-5 text-grey-9 transition-colors hover:border-accent"
               >
                 <p className="font-mono text-body-xs uppercase text-grey-7">Site</p>
-                <p className="mt-2 font-mono text-body-s">brunolimadev.dev.br</p>
+                <p className="mt-2 font-mono text-body-s">brunolima.dev.br</p>
               </a>
             </div>
 
@@ -537,7 +682,7 @@ export function QuoteDocument() {
       <footer className="border-t border-grey-4 py-8">
         <Container className="flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
           <p className="font-mono text-body-xs uppercase text-grey-7">
-            if ( aprovado ) → brunolimadev.dev.br/
+            if ( aprovado ) → brunolima.dev.br/
           </p>
           <p className="font-mono text-body-xs text-grey-7">
             {meta.id} · {meta.issuedLabel} · {contact.name}
