@@ -1,15 +1,18 @@
 'use server'
 
 import { cookies } from 'next/headers'
-import { redirect } from 'next/navigation'
+import { notFound, redirect } from 'next/navigation'
 import {
   QUOTE_COOKIE_NAME,
   QUOTE_PATH,
   getQuoteCookieValue,
+  isQuoteDisabled,
   isValidQuotePassword,
 } from '../../lib/quote-auth'
 
 export async function unlockQuote(formData: FormData) {
+  if (isQuoteDisabled()) notFound()
+
   const password = String(formData.get('password') ?? '')
 
   if (!isValidQuotePassword(password)) {

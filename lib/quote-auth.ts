@@ -3,6 +3,10 @@ import { createHmac, timingSafeEqual } from 'node:crypto'
 export const QUOTE_COOKIE_NAME = 'quote-access'
 export const QUOTE_PATH = '/orcamento/swordfish-brasil-001'
 
+export function isQuoteDisabled(): boolean {
+  return process.env.QUOTE_DISABLED === 'true'
+}
+
 function hmac(value: string) {
   const secret = process.env.QUOTE_SESSION ?? ''
   return createHmac('sha256', secret).update(value).digest()
